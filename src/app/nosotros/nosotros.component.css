@@ -1,0 +1,32 @@
+/* banner */
+.contenedor__banner {
+    height: 90vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("https://s3-alpha-sig.figma.com/img/4298/3b2d/541000b6e4b18938573fb02108c163c5?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WzT0hxOVwJUbrNwVS6~eCCHZJY3Ns9v2khLbXPMvSwaC6Lndg2QKEASy4-0kZAhdgmMsG5Z8S3Y8iIS38fE5nrsCKHgJJH~yV~u9xGYf64YFBR6dZ0El9HYULfC8h4P6Y~V48BbU4R2kd-aZHmZk0dkccv9CyClWPbCjo4f9X9HsDf3BdDFDuzrr2k-aZEUWKakv6t38m3NIioJwSdgrtJQ7PSubMmcpfbLAT7iVMHTy84abt-iuupSwe1G-vtRc-rWvKwv3NBS~LldfMBwSyKbN8X5NuNCBgj9i~qKYgeZFrdNswnbbzkW50rim~FQF9uKVUA1gYGOdr~ErCy9qJw__");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .contenedor__banner .content_banner {
+    margin-left: 5rem;
+    width: 38%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .contenedor__banner .content_banner h2 {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: normal;
+  }
+  .contenedor__banner .content_banner p {
+    font-size: 1rem;
+    color: #fff;
+  }
+  .contenedor__banner .content_banner button {
+    padding: 0.7rem 2.5rem;
+  }
