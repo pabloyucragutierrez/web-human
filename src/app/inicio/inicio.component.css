@@ -227,6 +227,9 @@ main {
   flex-wrap: wrap;
   margin-top: 2rem;
 }
+.section__modulos .contenedor__modulos article:hover{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
 .section__modulos .contenedor__modulos article {
   width: 19rem;
   border-radius: 10px;
