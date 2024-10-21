@@ -83,7 +83,7 @@
       </div>
     </div>
   </section>
-  <!--
+
   <section
     class="section__whuman"
     [ngStyle]="{
@@ -229,12 +229,19 @@
       <article
         class="article__preguntas"
         *ngFor="let pregunta of preguntas; let i = index"
-        [ngClass]="{ 'open__active': pregunta.open }"
+        [ngClass]="{ open__active: pregunta.open }"
       >
-        <div class="open__preguntas" (click)="togglePregunta(i)" [ngClass]="{ 'open__back': pregunta.open }">
+        <div
+          class="open__preguntas"
+          (click)="togglePregunta(i)"
+          [ngClass]="{ open__back: pregunta.open }"
+        >
           <b>{{ pregunta.text }}</b>
           <button>
-            <i class="bx" [ngClass]="pregunta.open ? 'bx-minus' : 'bx-plus'"></i>
+            <i
+              class="bx"
+              [ngClass]="pregunta.open ? 'bx-minus' : 'bx-plus'"
+            ></i>
           </button>
         </div>
         <div class="respuesta__content" *ngIf="pregunta.open">
@@ -243,7 +250,5 @@
       </article>
     </div>
   </section>
-  
-  -->
 </div>
 <app-footer></app-footer>
