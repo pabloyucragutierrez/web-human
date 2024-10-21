@@ -4,6 +4,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { PartnersComponent } from './partners/partners.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { HumanResourceComponent } from './human-resource/human-resource.component';
+import { ContactanosComponent } from './contactanos/contactanos.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,14 @@ const routes: Routes = [
   {
     path: 'human-resource',
     component: HumanResourceComponent,
+  },
+  {
+    path: 'contactanos',
+    component: ContactanosComponent,
+  },
+  {
+    path: 'iniciar-sesion',
+    component: LoginComponent,
   },
 ];
 

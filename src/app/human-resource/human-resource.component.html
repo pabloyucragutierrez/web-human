@@ -1,9 +1,249 @@
 <app-header></app-header>
 <div class="contenedor__banner">
-    <div class="content_banner">
-      <h2>Software de gestión de RR.HH en la nube</h2>
-      <p>Centraliza y potencia tu gestión de RR.HH con Human</p>
-      <button class="btn_all">Empezar ahora</button>
-    </div>
+  <div class="content_banner">
+    <h2>Software de gestión de RR.HH en la nube</h2>
+    <p>Centraliza y potencia tu gestión de RR.HH con Human</p>
+    <button class="btn_all">Empezar ahora</button>
   </div>
+</div>
+<div class="main__section">
+  <section class="section__adm">
+    <div class="contain_s contenedor__adm">
+      <article class="text__adm">
+        <div class="title__adm">
+          <h2>
+            <div>Administra todo tus Recursos</div>
+            <div>
+              Humanos
+              <span class="orange">desde una sola</span>
+            </div>
+            <div>
+              <span class="orange">plataforma en la nube</span>
+            </div>
+          </h2>
+        </div>
+        <div class="p__adm">
+          <p>
+            Transforma digitalmente la gestión de Recursos Humanos de tu
+            empresa. Ahorra tiempo y mejora la eficiencia con una suite de RRHH
+            completa y fácil de usar. Gestiona todo, desde empleados hasta
+            reclutamiento, formación, evaluación del rendimiento, control de
+            asistencia y planificación de vacaciones.
+          </p>
+        </div>
+      </article>
+      <article class="img__adm">
+        <img src="assets/mac_resource.png" alt="" />
+      </article>
+    </div>
+  </section>
+  <section class="section__mhuman">
+    <h2>
+      Módulos
+      <div>
+        <span class="orange">Human</span>
+      </div>
+    </h2>
+    <div class="contain_s contenedor__mhuman">
+      <div class="content__badges">
+        <button
+          [ngClass]="{ active__human: activeButtonIndex === 0 }"
+          (click)="setActiveButton(0)"
+        >
+          Gestión y organización de personal
+        </button>
+        <button
+          [ngClass]="{ active__human: activeButtonIndex === 1 }"
+          (click)="setActiveButton(1)"
+        >
+          Análisis y Evaluación
+        </button>
+        <button
+          [ngClass]="{ active__human: activeButtonIndex === 2 }"
+          (click)="setActiveButton(2)"
+        >
+          Integración y Personalización
+        </button>
+        <button
+          [ngClass]="{ active__human: activeButtonIndex === 3 }"
+          (click)="setActiveButton(3)"
+        >
+          Reclutamiento y Selección
+        </button>
+      </div>
+
+      <div class="cards__human">
+        <article *ngFor="let article of articles[activeButtonIndex]">
+          <img [src]="article.img" alt="" />
+          <div class="text__human">
+            <h3>{{ article.title }}</h3>
+            <p>{{ article.description }}</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!--
+  <section
+    class="section__whuman"
+    [ngStyle]="{
+      'background-image':
+        'linear-gradient(74.4deg, rgba(24, 34, 62, 0) -15.93%, rgba(31, 45, 81, 0.7) 53.85%), ' +
+        optionContent[activeOptionIndex].backgroundImage
+    }"
+  >
+    <div class="contain_s contenedor__whuman">
+      <article class="card__options">
+        <h3>¿Por qué elegir Human?</h3>
+        <div class="options__whuman">
+          <button
+            [ngClass]="{ active__option: activeOptionIndex === 0 }"
+            (click)="setActiveOption(0)"
+          >
+            <img src="assets/hub.png" alt="" />Centralización de operaciones
+          </button>
+          <button
+            [ngClass]="{ active__option: activeOptionIndex === 1 }"
+            (click)="setActiveOption(1)"
+          >
+            <img src="assets/settings.png" alt="" />Personalización flexible
+          </button>
+          <button
+            [ngClass]="{ active__option: activeOptionIndex === 2 }"
+            (click)="setActiveOption(2)"
+          >
+            <img src="assets/manufacturing.png" alt="" />Integraciones perfectas
+          </button>
+          <button
+            [ngClass]="{ active__option: activeOptionIndex === 3 }"
+            (click)="setActiveOption(3)"
+          >
+            <img src="assets/monitoring.png" alt="" />Mejora de la productividad
+          </button>
+          <button
+            [ngClass]="{ active__option: activeOptionIndex === 4 }"
+            (click)="setActiveOption(4)"
+          >
+            <img src="assets/check_human.png" alt="" />Potenciación del talento
+          </button>
+        </div>
+      </article>
+
+      <article class="text__whuman">
+        <b>{{ optionContent[activeOptionIndex].title }}</b>
+        <p>{{ optionContent[activeOptionIndex].description }}</p>
+      </article>
+    </div>
+  </section>
+  <section class="section__moderniza">
+    <div class="contain_s contenedor__moderniza">
+      <article class="text__moderniza">
+        <h2>
+          <div>
+            Moderniza los procesos
+            <span class="orange">de RRHH con</span>
+          </div>
+          <div>
+            <span class="orange">Human</span>
+          </div>
+        </h2>
+        <p>
+          Completa y envía el formulario para recibir más información sobre
+          nuestro software.
+        </p>
+        <ul>
+          <li>
+            <img src="assets/check_small.png" alt="" /> Procesos sencillos,
+            automáticos y fiables
+          </li>
+          <li>
+            <img src="assets/check_small.png" alt="" /> Incrementa la
+            participación de empleados y candidatos
+          </li>
+          <li>
+            <img src="assets/check_small.png" alt="" />
+            De atrás las horas de Excel, menores costos de papel, archivo y
+            tiempo
+          </li>
+        </ul>
+        <img
+          src="https://s3-alpha-sig.figma.com/img/1fb3/b2db/adacbbc82488321489dc1982860c7d9c?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=SwTkaQy3srvAAq1RB9Tr91OvsErw8wBkdOr-NBr6EjaCMn0y31q7gDwA3ZhvJjlr0-R1syP4aOXzzMXkigmSny-9lHLWyvPTDsgQCztoNb77O6gzUkoppnRk7NguWno813ZoGdXSKbBMTRkskBAqFBHA-rGGDN8PThf9nRPptksuhYsL3XjEs4v8PDkM55ybuGGsn60qPSXQ0r7Az7whjI~XcBZznxJkVcmVpRozOSCaHM12S8ScXHgpbrgePejMHCXWznoVfCI4ZzyAkX0ynOLM6sFP0IG2zK7GM5KEB4BUZXxUAvT01RyKTzCuehoaC7O84fnPHXqL1W~k7dlglw__"
+          alt=""
+          class="img__moderniza"
+        />
+      </article>
+      <article class="form__moderniza">
+        <form action="">
+          <div class="content__form">
+            <label for=""> Nombre de contacto </label>
+            <div class="content__icon">
+              <img src="assets/nombre_img.png" alt="" />
+              <input
+                type="text"
+                class="input"
+                placeholder="Nombre de contacto"
+              />
+            </div>
+          </div>
+          <div class="content__form">
+            <label for="">Nombre de la empresa</label>
+            <div class="content__icon">
+              <img src="assets/empresa_img.png" alt="" />
+              <input type="tex" class="input" />
+            </div>
+          </div>
+          <div class="content__form">
+            <label for="">Correo electrónico</label>
+            <div class="content__icon">
+              <img src="assets/email_img.png" alt="" />
+              <input
+                type="email"
+                name=""
+                class="input"
+                placeholder="empresa@email.com"
+                id=""
+              />
+            </div>
+          </div>
+          <div class="content__form">
+            <label for="">Teléfono</label>
+            <div class="content__icon">
+              <span>+51 <i class="bx bx-chevron-down"></i></span>
+              <input
+                type="number"
+                name=""
+                class="input num"
+                placeholder="Número de teléfono"
+                id=""
+              />
+            </div>
+          </div>
+          <button class="btn_all">Enviar</button>
+        </form>
+      </article>
+    </div>
+  </section>
+  <section class="section__preguntas">
+    <h2>Preguntas frecuentes</h2>
+    <div class="contain_s contenedor__preguntas">
+      <article
+        class="article__preguntas"
+        *ngFor="let pregunta of preguntas; let i = index"
+        [ngClass]="{ 'open__active': pregunta.open }"
+      >
+        <div class="open__preguntas" (click)="togglePregunta(i)" [ngClass]="{ 'open__back': pregunta.open }">
+          <b>{{ pregunta.text }}</b>
+          <button>
+            <i class="bx" [ngClass]="pregunta.open ? 'bx-minus' : 'bx-plus'"></i>
+          </button>
+        </div>
+        <div class="respuesta__content" *ngIf="pregunta.open">
+          <p>{{ pregunta.respuesta }}</p>
+        </div>
+      </article>
+    </div>
+  </section>
+  
+  -->
+</div>
 <app-footer></app-footer>

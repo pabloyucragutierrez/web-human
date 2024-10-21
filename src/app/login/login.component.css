@@ -1,0 +1,159 @@
+.section__login {
+  width: 100%;
+  position: relative;
+}
+.logo_login {
+  width: 10rem;
+  position: absolute;
+  left: 1rem;
+  top: 2rem;
+  cursor: pointer;
+}
+.close_login i {
+  font-size: 2rem;
+  color: #e4aa2fde;
+}
+.close_login {
+  cursor: pointer;
+  background-color: #fff;
+  width: 2.2rem;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.2rem;
+  border-radius: 50%;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+.section__login .contenedor__login {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section__login .contenedor__login article {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section__login .contenedor__login .img__login h3 {
+  font-size: 3rem;
+  width: 75%;
+  display: flex;
+  color: #fff;
+  margin: auto;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+.section__login .contenedor__login .img__login {
+  background-image: linear-gradient(#e4aa2fde, #e4aa2fde),
+    url("https://s3-alpha-sig.figma.com/img/8eca/2d8e/48df9f43361033da27ff375a055d165e?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=HtRjE9WY7VhDLENdN7TnxeFFSleiFCqAsBlsGeRyAk65uGKCqXxxahy7OqEVKpEpU~69K~KsREvFA~GuHtMyoQG~KWsTPtql8C0Yx~lzEM4Q-AB0-xRALVhxASqD34b7DH3Tld-ktGPmoudu-PxAQMneh~UezC8aNQgEqBBccBdQocB4oEdBzSwskGzrAENr0FQrSAiWYV7cmAL1UHNv4SMlyHSwD9xsmDb0g88ZcpFZgcZlgQog80RDby83S0lHjoAq2ZWIPNWmnQLgUYDm5MKV1TDH78UU2~kfM~FqYdZenU49g7G-7WblgAmFVpScrkxr6~Uf9o9A1vIm1nkZVQ__");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.section__login .contenedor__login .content__login h2 {
+  color: #385193;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.section__login .contenedor__login .content__login {
+  width: 68%;
+}
+.section__login .contenedor__login .content__login .form__text {
+  margin: 1rem 0;
+}
+.section__login .contenedor__login .content__login .form__text .content__icon {
+  width: 100%;
+  height: 2.5rem;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.section__login
+  .contenedor__login
+  .content__login
+  .form__text
+  .content__icon
+  .input::placeholder {
+  color: #33333399;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+.section__login .contenedor__login .content__login .form__text label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.section__login
+  .contenedor__login
+  .content__login
+  .form__text
+  .content__icon
+  .input {
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  width: 100%;
+  height: 100%;
+  padding: 0rem 1rem 0rem 2.4rem;
+  outline: none;
+}
+
+.section__login
+  .contenedor__login
+  .content__login
+  .form__text
+  .content__icon
+  img {
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  object-fit: contain;
+  height: 1rem;
+}
+.section__login
+  .contenedor__login
+  .content__login
+  .form__text
+  .content__icon
+  img.eye {
+  position: absolute;
+  right: 0.8rem;
+  left: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  object-fit: contain;
+  height: 1rem;
+}
+
+.section__login .contenedor__login .content__login .btn_all {
+  width: 100%;
+}
+.section__login .contenedor__login .content__login .form__check label {
+  font-size: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #333333;
+}
+.section__login .contenedor__login .content__login .form__check {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}

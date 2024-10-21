@@ -1,0 +1,54 @@
+<section class="section__login">
+  <img src="assets/logo_header.png" class="logo_login" onclick="location.href='/inicio'" alt="" />
+  <button class="close_login" onclick="location.href='/inicio'">
+    <i class="bx bx-x"></i>
+  </button>
+  <div class="contenedor__login">
+    <article>
+      <div class="content__login">
+        <h2>Inicia sesión</h2>
+        <div class="form__text">
+          <label for="email">Email</label>
+          <div class="content__icon">
+            <img src="assets/email_img.png" alt="" />
+            <input
+              type="email"
+              class="input"
+              placeholder="Ingresa tu email"
+              id=""
+            />
+          </div>
+        </div>
+        <div class="form__text">
+          <label for="password">Contraseña</label>
+          <div class="content__icon">
+            <img src="assets/password_img.png" alt="" />
+            <img 
+              src="assets/eye_img.png" 
+              class="eye" 
+              alt="" 
+              (click)="togglePasswordVisibility()" 
+              style="cursor: pointer;"
+            />
+            <input 
+              [type]="showPassword ? 'text' : 'password'" 
+              class="input" 
+              id="" 
+            />
+          </div>
+        </div>
+        <div class="form__check">
+          <input type="checkbox" id="" />
+          <label for="">
+            He leído y acepto las condiciones de privacidad y tratamiento de mis datos personales
+          </label>
+        </div>
+        <button type="submit" class="btn_all">Iniciar sesión</button>
+      </div>
+      
+    </article>
+    <article class="img__login">
+      <h3>Accede a tu cuenta y evoluciona tu gestión de Recursos Humanos</h3>
+    </article>
+  </div>
+</section>
