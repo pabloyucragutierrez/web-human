@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-partners',
@@ -12,11 +12,17 @@ export class PartnersComponent {
   private startX = 0;
   private scrollLeft = 0;
 
+  constructor(private renderer: Renderer2) {}
+
+  
   onDragStart(event: MouseEvent | TouchEvent) {
     this.isDragging = true;
 
     const container = this.sliderContainer.nativeElement;
     
+    
+    this.renderer.addClass(container, 'dragging');
+
     if (event instanceof MouseEvent) {
       this.startX = event.pageX - container.offsetLeft;
     } else {
@@ -26,6 +32,7 @@ export class PartnersComponent {
     this.scrollLeft = container.scrollLeft;
   }
 
+  
   onDragging(event: MouseEvent | TouchEvent) {
     if (!this.isDragging) return;
 
@@ -44,5 +51,8 @@ export class PartnersComponent {
 
   onDragEnd() {
     this.isDragging = false;
+
+    const container = this.sliderContainer.nativeElement;
+    this.renderer.removeClass(container, 'dragging');
   }
 }

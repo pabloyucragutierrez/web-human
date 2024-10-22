@@ -25,25 +25,25 @@ export class HumanResourceComponent {
         title: 'Gestión de empleados',
         description:
           'Directorio, calendario, documentos: todas las operaciones de su personal en un solo lugar.',
-        img: 'assets/img1_human.png',
+        img: 'assets/gestion1.png',
       },
       {
         title: 'Inducción',
         description:
           'Incorporación organizada y automatizada para preparar a los nuevos empleados para el éxito.',
-        img: 'https://s3-alpha-sig.figma.com/img/8d1f/d2d4/9189c2261b1d95818d918a906269fa97?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Q5z1QrBP9RxE99af8imsnG1fqA4~T49m8RbJjryF6Zvu1toCfk42nleSz5Um3dBCdb7YGms3Qn708cy8DjtqmH7hAZzeo1M0ftx1AzfRb34IW~AIn2lPCCmH2cI4ulrWPhHQeirb0rcINBpfUzK-Qsb7D9gGtj-yPVfQgiEnHc2zkZU1wI1N4wr-QSdTUeBxpLFznLCprooH3zMp9ZJE1HXo5G-YiBs71v3amkKcG7SsORpcctY~8qC4Hn5o~6DRsgPVHIffYWGNgYD9oxGM7i8Zk4gIl2Qo6JFYjpBKsI1zjx1WHxXUdeJxOksjcZX4YEbp0ddX9875o25vJbJr5Q__',
+        img: 'assets/gestion2.png',
       },
       {
         title: 'Seguimiento del tiempo libre',
         description:
           'PTO de autoservicio que siempre funciona según lo planificado.',
-        img: 'https://s3-alpha-sig.figma.com/img/cddd/e5ee/2cd3fa85ea0980a6e29b41bfce93fb14?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=J448xybS20NI0D9LgDMaaTsY7w6wvMwUb8lbkTff0wk95Xft6xlCenQvDQUZmN~~ZkKkiIYHI7j4hn6x7aSlPTgzOBkiD9MuNC6D4caj~tdBXGmhIE~xHrCC-4KvgYUGyaMAijxNoZnbeStIFmoNmhrK8m7sG-Gz7rdfzm~haM7JqZttbZeBE3cttu-rAZ0jia8azveLXWx7oWRJhfdcy~2aKuyZi6raHl7t05Hk-JhnmwT62MerE0mqv9v~REBIlbtLvruqJr351cRaYCa9~H3fp8HClWPN4kECqqCA3prGV1YZpSdCVqk71iUOB2C-am49PuigEQonjpbwNgLYXg__',
+        img: 'assets/gestion3.png',
       },
       {
         title: 'Gestión de Activos',
         description:
           'Realice un seguimiento de equipos, suscripciones y membresías con facilidad.',
-        img: 'https://s3-alpha-sig.figma.com/img/32ab/7997/0be108c297b338e4376f74b46bcca2b1?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FS58W2COARm84O2GKKMq4MgCKWSf3li7Nl4T9Z~2f5lgJ5XQKZQ0C6IUq5rrFzWdtebM2JKTkzh10doV7t2zFOvK-zHtTCAJndKnL2YhKxy2hOOrIPGPnI1W18jaA-MsLyv00Kompbry48eNR~BcxXi3lpyXq2LlPfQVA14s6NwRIxY5DftrwU5PmWOr3d5A3IN~tfvbOqerXmc0YPogsRJ~iK8EvGRo9HKFlghdMrjoIB1w6fA~ZJQ9Ik0mFbRtszBMuVhdMdIbVO~RoUgM8loy5x5UgtF-IGuoAZrK8-oPyoOsVXyQZsLATDTyD~3hNbgnI6a-PL-wb7dP-kSEcw__',
+        img: 'assets/gestion4.png',
       },
     ],
     [
@@ -51,26 +51,26 @@ export class HumanResourceComponent {
         title: 'Análisis de personas',
         description:
           'Información general para tomar decisiones mejor informadas.',
-        img: 'assets/img2_human.png',
+        img: 'assets/analisis1.png',
       },
       {
         title: 'Rendimiento de los empleados',
         description:
           'Ciclos de revisión para fomentar la retroalimentación y una mejor productividad.',
-        img: 'assets/img2_human.png',
+        img: 'assets/analisis2.png',
       },
     ],
     [
       {
         title: 'Integraciones',
         description: 'Tus aplicaciones favoritas, tu HRIS favorito conectados.',
-        img: 'assets/img3_human.png',
+        img: 'assets/integracion1.png',
       },
       {
         title: 'Personalizaciones',
         description:
           'Opciones de marca blanda para hacer que su HRIS sea realmente suyo.',
-        img: 'assets/img3_human.png',
+        img: 'assets/integracion2.png',
       },
     ],
     [
@@ -78,7 +78,7 @@ export class HumanResourceComponent {
         title: 'Seguimiento de solicitantes',
         description:
           'Herramienta de reclutamiento para atraer, evaluar y contratar a mejores talentos.',
-        img: 'assets/img4_human.png',
+        img: 'assets/reclutamiento1.png',
       },
     ],
   ];
@@ -93,25 +93,25 @@ export class HumanResourceComponent {
     {
       title: 'Personalización flexible',
       description:
-        'Human permite personalizar completamente los flujos de trabajo para adaptarse a las necesidades específicas de cada empresa, facilitando la administración eficiente y personalizada de los recursos humanos.',
+        'Adapta Human a las necesidades específicas de tu empresa con nuestras opciones de personalización. Personaliza flujos de trabajo, informes y módulos para que se alineen perfectamente con tus procesos, garantizando que la plataforma funcione como una extensión natural de tu equipo.',
       backgroundImage: 'url("/assets/human2_back.png")',
     },
     {
       title: 'Integraciones perfectas',
       description:
-        'Human se integra perfectamente con las herramientas de software existentes, ofreciendo una conectividad completa entre sus sistemas y una administración de recursos humanos más fluida.',
+        'Conecta Human con tus aplicaciones favoritas para una experiencia sin interrupciones. Las integraciones fluidas con sistemas de contabilidad, gestión de proyectos y otras herramientas esenciales aseguran una transferencia de datos sin problemas, mejorando la eficiencia operativa y reduciendo errores.',
       backgroundImage: 'url("/assets/human3_back.png")',
     },
     {
       title: 'Mejora de la productividad',
       description:
-        'Human ayuda a mejorar la productividad del equipo mediante la automatización de tareas administrativas, lo que permite que el equipo se concentre en actividades más estratégicas.',
+        'Optimiza procesos y reduce  el tiempo dedicado a tareas administrativas, Human automatiza tareas rutinarias como la gestión de nóminas, el seguimiento del tiempo y la organización de documentos, liberando a tu equipo para que se concentre en actividades estratégicas y de alto valor.',
       backgroundImage: 'url("/assets/human4_back.png")',
     },
     {
       title: 'Potenciación del talento',
       description:
-        'Human facilita el desarrollo y la retención del talento al ofrecer herramientas de seguimiento y evaluación que impulsan el crecimiento profesional de los empleados.',
+        'Gestiona el ciclo de vida del empleado, desde el reclutamiento hasta la evaluación del desempeño y la planificación de la carrera. Human ofrece herramientas robustas para identificar, desarrollar y retener talento, ayudando a construir un equipo fuerte y motivado.',
       backgroundImage: 'url("/assets/human5_back.png")',
     },
   ];

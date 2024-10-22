@@ -180,6 +180,9 @@
   gap: 1rem;
 }
 
+.section__pbeneficios .contenedor__pbeneficios::-webkit-scrollbar {
+  height: 0;
+}
 .section__pbeneficios .contenedor__pbeneficios {
   display: flex;
   align-items: center;
@@ -188,7 +191,9 @@
   overflow-x: auto;
   scroll-behavior: smooth;
 }
-
+.section__pbeneficios .contenedor__pbeneficios.dragging {
+  cursor: grabbing;
+}
 
 .section__pbeneficios .contenedor__pbeneficios article:nth-of-type(1) {
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)),
