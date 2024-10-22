@@ -5,7 +5,7 @@
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
     url("https://s3-alpha-sig.figma.com/img/7121/d93c/c4c2cb1c3bc24c14bc624990cfea66ce?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=msYvCW1oO4cGNpz12p76E7blfVuy9Yngk8jXXh-O8XqDXSB7vzMmfCxAypPFmlefpawiZ510te-p6JKLJymhPX3kr5mHth766hvI82QLTBDeM2fH~KuLOvwjlO~p32WIjQSrbgC8gK0ZK33OsYOCf7avFvKAQ2oza0siMj4~c5welBuzVcrNy0nhEgvJybxeHmzinPKUPneQW~P7Z-VqiCJarJFJwhKMmJaZJSf1jiEZrfsOx5Tr6qS0Mc8sR7LI8qaM2udC~A4u7dyh2hZaZYDXX4d-Ei6CsAFiAhRmLiIyLrDH1CdN6fHJZrLmUIRcScT1j0At3L54ZZxzmxuFZw__");
   background-size: cover;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;

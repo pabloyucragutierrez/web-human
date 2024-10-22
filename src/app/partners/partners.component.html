@@ -6,7 +6,7 @@
       Potencia el éxito de tus clientes y acelera la transformación de sus
       procesos con nuestra solución integral de gestión de recursos humanos
     </p>
-    <button class="btn_all">Empezar ahora</button>
+    <a href="/partners#solicitar" class="btn_all">Empezar ahora</a>
   </div>
 </div>
 
@@ -68,10 +68,20 @@
     <h2>
       Beneficios de ser un
       <div>
-        <span class="orange">Partners de Human</span>
+        <span class="orange">Partner de Human</span>
       </div>
     </h2>
-    <div class="contain_s contenedor__pbeneficios">
+    <div
+      #sliderContainer
+      class="contain_s contenedor__pbeneficios"
+      (mousedown)="onDragStart($event)"
+      (mousemove)="onDragging($event)"
+      (mouseup)="onDragEnd()"
+      (mouseleave)="onDragEnd()"
+      (touchstart)="onDragStart($event)"
+      (touchmove)="onDragging($event)"
+      (touchend)="onDragEnd()"
+    >
       <article>
         <b>Optimización de recursos</b>
       </article>
@@ -83,6 +93,18 @@
       </article>
       <article>
         <b>Mejora en la satisfacción del empleado</b>
+      </article>
+      <article>
+        <b>Perzonalización y adaptación</b>
+      </article>
+      <article>
+        <b>gestión eficiente de recursos</b>
+      </article>
+      <article>
+        <b>Soporte y mejora continua</b>
+      </article>
+      <article>
+        <b>Ventajas comerciales y financieras</b>
       </article>
     </div>
   </section>
@@ -168,7 +190,7 @@
       </article>
     </div>
   </section>
-  <section class="section__psolicitar">
+  <section class="section__psolicitar" id="solicitar">
     <div class="contain_s contenedor__psolicitar">
       <article class="text__psolicitar">
         <h2>

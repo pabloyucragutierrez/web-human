@@ -1,13 +1,13 @@
 /* banner */
 .contenedor__banner {
-  height: 90vh;
+  height: 80vh;
   width: 100%;
   /* background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("/assets/img_banner.png"); */
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
     url("/assets/img_banner.png");
   background-size: cover;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
@@ -54,6 +54,7 @@
   border-radius: 20px;
   width: 40%;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  margin-left: 5rem;
   padding: 1.5rem;
   z-index: 2;
 }
@@ -244,19 +245,20 @@
   margin-top: 2rem;
 }
 .section__modulos .contenedor__modulos article:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.3);
 }
 .section__modulos .contenedor__modulos article {
   width: 19rem;
   border-radius: 10px;
   overflow: auto;
   position: relative;
+  transition: 0.3s ease all;
   border: 1px solid rgba(128, 128, 128, 0.61);
   z-index: 2;
 }
 .section__modulos .contenedor__modulos article span img {
-  width: 65%;
-  height: 65%;
+  width: 90%;
+  height: 90%;
   object-fit: contain;
 }
 .section__modulos .contenedor__modulos article span {
@@ -350,6 +352,7 @@
 }
 .section__trabajar .contenedor__trabajar article p {
   color: #fff;
+  height: 4rem;
   font-size: 1.6rem;
 }
 
@@ -377,6 +380,7 @@
   font-size: 2rem;
 }
 .section__exito .contenedor__exito .text__exito p {
+  width: 90%;
   font-size: 1.2rem;
   color: rgba(0, 0, 0, 0.76);
 }
@@ -553,6 +557,7 @@
     rgba(255, 140, 128, 0.5) 50%,
     #a3afcd 100%
   );
+  position: relative;
 }
 
 .section__transforma .contenedor__transforma {
@@ -560,6 +565,9 @@
   justify-content: center;
   gap: 5rem;
   align-items: center;
+}
+.section__transforma .contenedor__transforma article{
+  z-index: 2;
 }
 .section__transforma .contenedor__transforma article img {
   width: 37rem;
@@ -590,6 +598,20 @@
   color: #fff;
   width: fit-content;
   margin: 0.5rem 0;
+}
+.ellipse42 {
+  position: absolute;
+  left: 0;
+  transform: translateY(-50%);
+  top: 50%;
+  z-index: 1;
+}
+.ellipse43 {
+  position: absolute;
+  transform: translateY(-50%);
+  right: 0;
+  z-index: 1;
+  top: 50%;
 }
 
 /* sección contacto */

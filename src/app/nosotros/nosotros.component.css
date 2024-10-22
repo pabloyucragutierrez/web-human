@@ -1,11 +1,11 @@
 /* banner */
 .contenedor__banner {
-  height: 90vh;
+  height: 80vh;
   width: 100%;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
     url("https://s3-alpha-sig.figma.com/img/4298/3b2d/541000b6e4b18938573fb02108c163c5?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WzT0hxOVwJUbrNwVS6~eCCHZJY3Ns9v2khLbXPMvSwaC6Lndg2QKEASy4-0kZAhdgmMsG5Z8S3Y8iIS38fE5nrsCKHgJJH~yV~u9xGYf64YFBR6dZ0El9HYULfC8h4P6Y~V48BbU4R2kd-aZHmZk0dkccv9CyClWPbCjo4f9X9HsDf3BdDFDuzrr2k-aZEUWKakv6t38m3NIioJwSdgrtJQ7PSubMmcpfbLAT7iVMHTy84abt-iuupSwe1G-vtRc-rWvKwv3NBS~LldfMBwSyKbN8X5NuNCBgj9i~qKYgeZFrdNswnbbzkW50rim~FQF9uKVUA1gYGOdr~ErCy9qJw__");
   background-size: cover;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
@@ -281,7 +281,7 @@
   padding: 0.4rem 1rem;
   background-color: #fbbb34;
   border-radius: 10px;
-  font-size: .8rem;
+  font-size: 0.8rem;
   border-radius: 10px;
   border: none;
   width: fit-content;
@@ -289,4 +289,211 @@
   color: #fff;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* modal nosotros */
+.modal__contacto {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.section__contacto {
+  padding: 3rem 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  height: 40rem;
+  width: 95%;
+  position: relative;
+}
+.close__software i {
+  font-size: 1.8rem;
+}
+.close__software {
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+  width: 2rem;
+  border-radius: 50%;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+}
+
+
+.section__contacto .contenedor__contacto {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.section__contacto .contenedor__contacto .text__contacto {
+  width: 32%;
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+}
+.section__contacto .contenedor__contacto .text__contacto img {
+  width: 100%;
+  height: 25.94rem;
+  object-fit: contain;
+}
+.section__contacto .contenedor__contacto .text__contacto p {
+  margin: 1rem 0;
+}
+.section__contacto .contenedor__contacto .text__contacto h2 {
+  font-size: 2rem;
+}
+.section__contacto .contenedor__contacto .form__contacto {
+  width: 62%;
+  height: 100%;
+}
+.section__contacto .contenedor__contacto .form__contacto form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.section__contacto .contenedor__contacto .form__contacto form label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.section__contacto .contenedor__contacto .form__contacto form .content__form {
+  width: 31%;
+  margin-bottom: 1rem;
+}
+.section__contacto
+  .contenedor__contacto
+  .form__contacto
+  form
+  .content__form
+  .content__icon {
+  width: 100%;
+  height: 2.3rem;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  border-radius: 8px;
+}
+.section__contacto
+  .contenedor__contacto
+  .form__contacto
+  form
+  .content__form
+  .content__icon
+  .input::placeholder {
+  color: #33333399;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+.section__contacto
+  .contenedor__contacto
+  .form__contacto
+  form
+  .content__form
+  .content__icon
+  .input.ruc {
+  padding: 0rem 1rem 0rem 1rem;
+}
+.section__contacto
+  .contenedor__contacto
+  .form__contacto
+  form
+  .content__form
+  .content__icon
+  .input {
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  width: 100%;
+  height: 100%;
+  padding: 0rem 1rem 0rem 2.4rem;
+  outline: none;
+}
+
+.section__contacto
+  .contenedor__contacto
+  .form__contacto
+  form
+  .content__form
+  .content__icon
+  img {
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+}
+
+.section__contacto .contenedor__contacto .form__contacto form .content_checks {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.section__contacto
+  .contenedor__contacto
+  .form__contacto
+  form
+  .content_checks
+  h2 {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.section__contacto
+  .contenedor__contacto
+  .form__contacto
+  form
+  .content_checks
+  .check
+  label {
+  font-weight: normal;
+  color: #333333;
+}
+.section__contacto
+  .contenedor__contacto
+  .form__contacto
+  form
+  .content_checks
+  .check {
+  display: flex;
+  width: 50%;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0rem;
+}
+
+.section__contacto .contenedor__contacto .form__contacto form textarea {
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  resize: none;
+  height: 10rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.section__contacto .contenedor__contacto .form__contacto form .btn_all {
+  padding: 0.8rem 2.5rem;
 }

@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrl: './nosotros.component.css'
 })
 export class NosotrosComponent {
+  isModalOpen = false;
 
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
 }

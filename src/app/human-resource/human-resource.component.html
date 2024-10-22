@@ -3,12 +3,16 @@
   <div class="content_banner">
     <h2>Software de gestión de RR.HH en la nube</h2>
     <p>Centraliza y potencia tu gestión de RR.HH con Human</p>
-    <button class="btn_all">Empezar ahora</button>
+    <button class="btn_all"  (click)="openModal()">Empezar ahora</button>
   </div>
 </div>
 <div class="main__section">
   <section class="section__adm">
+    <img src="assets/ellipse44.png" class="ellipse44" alt="" />
+    <img src="assets/ellipse45.png" class="ellipse45" alt="" />
     <div class="contain_s contenedor__adm">
+      <img src="assets/ellipse46.png" class="ellipse46" alt="" />
+      <img src="assets/ellipse47.png" class="ellipse47" alt="" />
       <article class="text__adm">
         <div class="title__adm">
           <h2>
@@ -137,6 +141,9 @@
   </section>
   <section class="section__moderniza">
     <div class="contain_s contenedor__moderniza">
+      <img src="assets/ellipse48.png" class="ellipse48" alt="" />
+      <img src="assets/ellipse49.png" class="ellipse49" alt="" />
+      <img src="assets/ellipse50.png" class="ellipse50" alt="" />
       <article class="text__moderniza">
         <h2>
           <div>
@@ -224,8 +231,12 @@
     </div>
   </section>
   <section class="section__preguntas">
+    <img src="assets/ellipse51.png" class="ellipse51" alt="" />
+    <img src="assets/ellipse52.png" class="ellipse52" alt="" />
     <h2>Preguntas frecuentes</h2>
     <div class="contain_s contenedor__preguntas">
+      <img src="assets/ellipse53.png" class="ellipse53" alt="" />
+      <img src="assets/ellipse54.png" class="ellipse54" alt="" />
       <article
         class="article__preguntas"
         *ngFor="let pregunta of preguntas; let i = index"
@@ -250,5 +261,62 @@
       </article>
     </div>
   </section>
+</div>
+<div class="modal__software" *ngIf="isModalOpen">
+  <article class="form__moderniza">
+    <button class="close__software" (click)="closeModal()">
+      <i class="bx bx-x"></i>
+    </button>
+    <form action="">
+      <div class="content__form">
+        <label for=""> Nombre de contacto </label>
+        <div class="content__icon">
+          <img src="assets/nombre_img.png" alt="" />
+          <input type="text" class="input" placeholder="Nombre de contacto" />
+        </div>
+      </div>
+      <div class="content__form">
+        <label for=""> Cargo </label>
+        <div class="content__icon">
+          <img src="assets/cargo_img.png" alt="" />
+          <input type="text" class="input" />
+        </div>
+      </div>
+      <div class="content__form">
+        <label for="">Nombre de la empresa</label>
+        <div class="content__icon">
+          <img src="assets/empresa_img.png" alt="" />
+          <input type="tex" class="input" />
+        </div>
+      </div>
+      <div class="content__form">
+        <label for="">Correo electrónico</label>
+        <div class="content__icon">
+          <img src="assets/email_img.png" alt="" />
+          <input
+            type="email"
+            name=""
+            class="input"
+            placeholder="empresa@email.com"
+            id=""
+          />
+        </div>
+      </div>
+      <div class="content__form">
+        <label for="">Teléfono</label>
+        <div class="content__icon">
+          <span>+51 <i class="bx bx-chevron-down"></i></span>
+          <input
+            type="number"
+            name=""
+            class="input num"
+            placeholder="Número de teléfono"
+            id=""
+          />
+        </div>
+      </div>
+      <button class="btn_all">Enviar</button>
+    </form>
+  </article>
 </div>
 <app-footer></app-footer>

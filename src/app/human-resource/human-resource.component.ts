@@ -6,6 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./human-resource.component.css'],
 })
 export class HumanResourceComponent {
+  isModalOpen = false;
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
   activeButtonIndex: number = 0;
   activeOptionIndex: number = 0;
 
@@ -53,21 +63,21 @@ export class HumanResourceComponent {
     [
       {
         title: 'Integraciones',
-        description:
-          'Conecte todos sus sistemas de RR.HH. para una administración centralizada.',
+        description: 'Tus aplicaciones favoritas, tu HRIS favorito conectados.',
         img: 'assets/img3_human.png',
       },
       {
         title: 'Personalizaciones',
         description:
-          'Adapte los flujos de trabajo según las necesidades únicas de su empresa.',
+          'Opciones de marca blanda para hacer que su HRIS sea realmente suyo.',
         img: 'assets/img3_human.png',
       },
     ],
     [
       {
         title: 'Seguimiento de solicitantes',
-        description: 'Automatice su proceso de reclutamiento y ahorre tiempo.',
+        description:
+          'Herramienta de reclutamiento para atraer, evaluar y contratar a mejores talentos.',
         img: 'assets/img4_human.png',
       },
     ],

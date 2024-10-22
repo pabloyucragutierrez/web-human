@@ -17,8 +17,7 @@ export class InicioComponent implements OnInit {
   @ViewChild('trabajarSection', { static: true }) trabajarSection!: ElementRef;
   @ViewChild('sliderExito', { static: false }) sliderExito!: ElementRef;
 
-  activeButton: 'left' | 'right' = 'right'; // Establece el botón activo inicialmente
-
+  activeButton: 'left' | 'right' = 'right';
   ngOnInit(): void {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -29,46 +28,54 @@ export class InicioComponent implements OnInit {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.8 }
     );
 
     observer.observe(this.trabajarSection.nativeElement);
   }
 
   animateNumbers() {
+    const duration = 5000;
+    const yearsStepTime =
+      duration / (this.finalYearsExperience - this.yearsExperience);
     const yearsInterval = setInterval(() => {
       if (this.yearsExperience < this.finalYearsExperience) {
         this.yearsExperience++;
       } else {
         clearInterval(yearsInterval);
       }
-    }, 100);
+    }, yearsStepTime);
+
+    const companiesStepTime =
+      duration / ((this.finalCompanies - this.companies) / 5);
     const companiesInterval = setInterval(() => {
       if (this.companies < this.finalCompanies) {
         this.companies += 5;
       } else {
         clearInterval(companiesInterval);
       }
-    }, 100);
+    }, companiesStepTime);
 
+    const satisfactionStepTime =
+      duration / (this.finalCustomerSatisfaction - this.customerSatisfaction);
     const satisfactionInterval = setInterval(() => {
       if (this.customerSatisfaction < this.finalCustomerSatisfaction) {
         this.customerSatisfaction++;
       } else {
         clearInterval(satisfactionInterval);
       }
-    }, 30);
+    }, satisfactionStepTime);
   }
 
   leftExito() {
     const containerExito = this.sliderExito.nativeElement;
     containerExito.scrollLeft -= containerExito.offsetWidth;
-    this.activeButton = 'left'; 
+    this.activeButton = 'left';
   }
 
   rightExito() {
     const containerExito = this.sliderExito.nativeElement;
     containerExito.scrollLeft += containerExito.offsetWidth;
-    this.activeButton = 'right'; 
+    this.activeButton = 'right';
   }
 }
