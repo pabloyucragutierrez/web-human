@@ -656,10 +656,14 @@
   padding: 5rem 3rem 0 3rem;
   background-color: #fff;
 }
-
+#contacto {
+  padding-top: 50px;
+  margin-top: -50px; 
+}
 .section__contacto .contenedor__contacto {
   display: flex;
   justify-content: space-between;
+  padding-top: 5rem;
 }
 .section__contacto .contenedor__contacto .text__contacto {
   width: 32%;

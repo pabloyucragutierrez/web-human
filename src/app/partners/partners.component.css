@@ -154,6 +154,44 @@
 .section__pbeneficios {
   padding: 5rem 6rem;
 }
+.content__arrows:hover .right__beneficios {
+  visibility: visible;
+  opacity: 1;
+}
+.content__arrows:hover .left__beneficios {
+  visibility: visible;
+  opacity: 1;
+}
+.content__arrows {
+  width: 100%;
+  position: relative;
+}
+.left__beneficios i,
+.right__beneficios i {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.left__beneficios {
+  left: 0.5rem;
+}
+.right__beneficios {
+  right: 0.5rem;
+}
+.left__beneficios,
+.right__beneficios {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  padding: 2rem 0.2rem;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  outline: none;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  transition: 0.3s ease all;
+}
 
 .section__pbeneficios h2 .orange {
   padding: 0.2rem 0.8rem;
@@ -184,6 +222,7 @@
   height: 0;
 }
 .section__pbeneficios .contenedor__pbeneficios {
+  width: 100%;
   display: flex;
   align-items: center;
   margin-top: 3rem;
@@ -193,24 +232,6 @@
 }
 .section__pbeneficios .contenedor__pbeneficios.dragging {
   cursor: grabbing;
-}
-.section__pbeneficios .arrows__beneficios button i{
-  font-size: 2rem;
-}
-.section__pbeneficios .arrows__beneficios button{
-  background-color: #385193;
-  color: #fff;
-  padding: .2rem;
-  cursor: pointer;
-  border: none;
-  outline: none;
-}
-.section__pbeneficios .arrows__beneficios{
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
 }
 
 .section__pbeneficios .contenedor__pbeneficios article:nth-of-type(1) {
@@ -465,12 +486,17 @@
 .section__psolicitar {
   padding: 5rem 6rem;
 }
+#solicitar {
+  padding-top: 50px;
+  margin-top: -50px;
+}
 .section__psolicitar .contenedor__psolicitar {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  padding-top: 5rem;
 }
 .section__psolicitar .contenedor__psolicitar .text__psolicitar {
   width: 49%;
