@@ -9,6 +9,7 @@ html {
   font-size: 16px;
   box-sizing: border-box;
   font-family: "DM Sans", sans-serif;
+  scroll-behavior: smooth;
 }
 main,
 .main__section {

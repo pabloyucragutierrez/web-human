@@ -3,8 +3,8 @@
     <img
       class="logo_header"
       src="assets/logo_header.png"
-      onclick="location.href='/inicio'"
       alt="Web Human"
+      (click)="reloadPage()"
     />
     <nav>
       <ul>
@@ -26,5 +26,8 @@
       </ul>
     </nav>
     <a routerLink="/iniciar-sesion" class="btn_all">Iniciar sesión</a>
+    <button class="menu__movil">
+      <i class="bx bx-menu"></i>
+    </button>
   </div>
 </header>

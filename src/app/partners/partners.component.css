@@ -187,12 +187,30 @@
   display: flex;
   align-items: center;
   margin-top: 3rem;
-  cursor: grab;
+  /* cursor: grab; */
   overflow-x: auto;
   scroll-behavior: smooth;
 }
 .section__pbeneficios .contenedor__pbeneficios.dragging {
   cursor: grabbing;
+}
+.section__pbeneficios .arrows__beneficios button i{
+  font-size: 2rem;
+}
+.section__pbeneficios .arrows__beneficios button{
+  background-color: #385193;
+  color: #fff;
+  padding: .2rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.section__pbeneficios .arrows__beneficios{
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .section__pbeneficios .contenedor__pbeneficios article:nth-of-type(1) {

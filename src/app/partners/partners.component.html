@@ -71,7 +71,7 @@
         <span class="orange">Partner de Human</span>
       </div>
     </h2>
-    <div
+    <!-- <div
       #sliderContainer
       class="contain_s contenedor__pbeneficios"
       (mousedown)="onDragStart($event)"
@@ -98,7 +98,7 @@
         <b>Perzonalización y adaptación</b>
       </article>
       <article>
-        <b>gestión eficiente de recursos</b>
+        <b>Gestión eficiente de recursos</b>
       </article>
       <article>
         <b>Soporte y mejora continua</b>
@@ -106,6 +106,40 @@
       <article>
         <b>Ventajas comerciales y financieras</b>
       </article>
+    </div> -->
+    <div class="contain_s contenedor__pbeneficios" #sliderBeneficio>
+      <article>
+        <b>Optimización de recursos</b>
+      </article>
+      <article>
+        <b>Toma de decisiones informadas</b>
+      </article>
+      <article>
+        <b>Incremento de la productividad</b>
+      </article>
+      <article>
+        <b>Mejora en la satisfacción del empleado</b>
+      </article>
+      <article>
+        <b>Perzonalización y adaptación</b>
+      </article>
+      <article>
+        <b>Gestión eficiente de recursos</b>
+      </article>
+      <article>
+        <b>Soporte y mejora continua</b>
+      </article>
+      <article>
+        <b>Ventajas comerciales y financieras</b>
+      </article>
+    </div>
+    <div class="arrows__beneficios">
+      <button class="left__beneficios" (click)="leftBeneficio()">
+        <i class="bx bx-chevron-left"></i>
+      </button>
+      <button class="right__beneficios" (click)="rightBeneficio()">
+        <i class="bx bx-chevron-right"></i>
+      </button>
     </div>
   </section>
   <section class="section__pred">

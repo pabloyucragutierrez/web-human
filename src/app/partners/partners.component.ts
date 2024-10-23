@@ -6,53 +6,65 @@ import { Component, ElementRef, ViewChild, Renderer2 } from '@angular/core';
   styleUrls: ['./partners.component.css']
 })
 export class PartnersComponent {
-  @ViewChild('sliderContainer') sliderContainer!: ElementRef;
-  
-  private isDragging = false;
-  private startX = 0;
-  private scrollLeft = 0;
-
-  constructor(private renderer: Renderer2) {}
+  // @ViewChild('sliderContainer') sliderContainer!: ElementRef;
+  @ViewChild('sliderBeneficio', { static: false }) sliderBeneficio!: ElementRef;
 
   
-  onDragStart(event: MouseEvent | TouchEvent) {
-    this.isDragging = true;
+  // private isDragging = false;
+  // private startX = 0;
+  // private scrollLeft = 0;
 
-    const container = this.sliderContainer.nativeElement;
+  // constructor(private renderer: Renderer2) {}
+
+  
+  // onDragStart(event: MouseEvent | TouchEvent) {
+  //   this.isDragging = true;
+
+  //   const container = this.sliderContainer.nativeElement;
     
     
-    this.renderer.addClass(container, 'dragging');
+  //   this.renderer.addClass(container, 'dragging');
 
-    if (event instanceof MouseEvent) {
-      this.startX = event.pageX - container.offsetLeft;
-    } else {
-      this.startX = event.touches[0].pageX - container.offsetLeft;
-    }
+  //   if (event instanceof MouseEvent) {
+  //     this.startX = event.pageX - container.offsetLeft;
+  //   } else {
+  //     this.startX = event.touches[0].pageX - container.offsetLeft;
+  //   }
 
-    this.scrollLeft = container.scrollLeft;
-  }
+  //   this.scrollLeft = container.scrollLeft;
+  // }
 
   
-  onDragging(event: MouseEvent | TouchEvent) {
-    if (!this.isDragging) return;
+  // onDragging(event: MouseEvent | TouchEvent) {
+  //   if (!this.isDragging) return;
 
-    const container = this.sliderContainer.nativeElement;
-    let x;
+  //   const container = this.sliderContainer.nativeElement;
+  //   let x;
 
-    if (event instanceof MouseEvent) {
-      x = event.pageX - container.offsetLeft;
-    } else {
-      x = event.touches[0].pageX - container.offsetLeft;
-    }
+  //   if (event instanceof MouseEvent) {
+  //     x = event.pageX - container.offsetLeft;
+  //   } else {
+  //     x = event.touches[0].pageX - container.offsetLeft;
+  //   }
 
-    const walk = (x - this.startX) * 2; 
-    container.scrollLeft = this.scrollLeft - walk;
+  //   const walk = (x - this.startX) * 2; 
+  //   container.scrollLeft = this.scrollLeft - walk;
+  // }
+
+  // onDragEnd() {
+  //   this.isDragging = false;
+
+  //   const container = this.sliderContainer.nativeElement;
+  //   this.renderer.removeClass(container, 'dragging');
+  // }
+ 
+  leftBeneficio() {
+    const containerExito = this.sliderBeneficio.nativeElement;
+    containerExito.scrollLeft -= containerExito.offsetWidth;
   }
 
-  onDragEnd() {
-    this.isDragging = false;
-
-    const container = this.sliderContainer.nativeElement;
-    this.renderer.removeClass(container, 'dragging');
+  rightBeneficio() {
+    const containerExito = this.sliderBeneficio.nativeElement;
+    containerExito.scrollLeft += containerExito.offsetWidth;
   }
 }

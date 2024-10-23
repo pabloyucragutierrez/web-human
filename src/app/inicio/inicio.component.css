@@ -817,3 +817,27 @@
 .section__contacto .contenedor__contacto .form__contacto form .btn_all {
   padding: 0.8rem 2.5rem;
 }
+
+@media (max-width: 760px) {
+  .contenedor__banner .content_banner {
+    margin: 0;
+    width: 90%;
+  }
+  .contenedor__banner {
+    justify-content: center;
+  }
+  .section__plataforma {
+    padding: 2rem;
+  }
+  .section__plataforma .contenedor__plataforma .img__plataforma{
+    width: 70%;
+  }
+  .section__plataforma .contenedor__plataforma .text__plataforma {
+    width: 100%;
+    margin: 0;
+  }
+  .section__plataforma .contenedor__plataforma {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+}

@@ -21,7 +21,7 @@
 .contenedor__banner .content_banner h2 {
   color: #fff;
   font-size: 2.5rem;
-  font-weight: normal;
+  font-weight: 600;
 }
 .contenedor__banner .content_banner p {
   font-size: 1rem;
@@ -101,6 +101,7 @@
 }
 .section__contacto .contenedor__contacto .text__contacto h2 {
   font-size: 2rem;
+  color: #385193;
 }
 .section__contacto .contenedor__contacto .form__contacto {
   width: 62%;

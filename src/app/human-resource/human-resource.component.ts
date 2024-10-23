@@ -88,31 +88,31 @@ export class HumanResourceComponent {
       title: 'Centralización de operaciones',
       description:
         'Human centraliza todas las operaciones de recursos humanos en una plataforma única y eficiente. Simplifica la administración diaria al tener toda la información de empleados, nóminas, tiempo y asistencia en un solo lugar, permitiendo una gestión más ágil y ordenada.',
-      backgroundImage: 'url("/assets/human1_back.png")',
+      backgroundImage: 'url("/assets/human1_back.jpg")',
     },
     {
       title: 'Personalización flexible',
       description:
         'Adapta Human a las necesidades específicas de tu empresa con nuestras opciones de personalización. Personaliza flujos de trabajo, informes y módulos para que se alineen perfectamente con tus procesos, garantizando que la plataforma funcione como una extensión natural de tu equipo.',
-      backgroundImage: 'url("/assets/human2_back.png")',
+      backgroundImage: 'url("/assets/human2_back.jpg")',
     },
     {
       title: 'Integraciones perfectas',
       description:
         'Conecta Human con tus aplicaciones favoritas para una experiencia sin interrupciones. Las integraciones fluidas con sistemas de contabilidad, gestión de proyectos y otras herramientas esenciales aseguran una transferencia de datos sin problemas, mejorando la eficiencia operativa y reduciendo errores.',
-      backgroundImage: 'url("/assets/human3_back.png")',
+      backgroundImage: 'url("/assets/human3_back.jpg")',
     },
     {
       title: 'Mejora de la productividad',
       description:
-        'Optimiza procesos y reduce  el tiempo dedicado a tareas administrativas, Human automatiza tareas rutinarias como la gestión de nóminas, el seguimiento del tiempo y la organización de documentos, liberando a tu equipo para que se concentre en actividades estratégicas y de alto valor.',
-      backgroundImage: 'url("/assets/human4_back.png")',
+        'Optimiza procesos y reduce  el tiempo dedicado a tareas administrativas. Human automatiza tareas rutinarias como la gestión de nóminas, el seguimiento del tiempo y la organización de documentos, liberando a tu equipo para que se concentre en actividades estratégicas y de alto valor.',
+      backgroundImage: 'url("/assets/human4_back.jpg")',
     },
     {
       title: 'Potenciación del talento',
       description:
         'Gestiona el ciclo de vida del empleado, desde el reclutamiento hasta la evaluación del desempeño y la planificación de la carrera. Human ofrece herramientas robustas para identificar, desarrollar y retener talento, ayudando a construir un equipo fuerte y motivado.',
-      backgroundImage: 'url("/assets/human5_back.png")',
+      backgroundImage: 'url("/assets/human5_back.jpg")',
     },
   ];
 
@@ -126,7 +126,7 @@ export class HumanResourceComponent {
     {
       text: '¿Es Human compatible con otras herramientas y sistemas de gestión que ya utilizamos?',
       respuesta:
-        'Sí, Human está diseñado para integrarse de manera flexible con otros productos de nuestra suite y con herramientas de terceros. Esto permite que la plataforma se adapte a sus necesidades específicas, ofreciendo un entorno interdepartamental y multifuncional que facilita la conectividad y la automatización de todos sus procesos.',
+        'Sí, Human está diseñado para integrarse de manera flexible con otros productos de nuestra suite y con herramientas de terceros. Esto permite que la plataforma se adapte a sus necesidades específicas, ofreciendo un entorno interdepartamental y multifuncional, lo que facilita la conectividad y la automatización de todos sus procesos.',
       open: false,
     },
     {
@@ -138,7 +138,7 @@ export class HumanResourceComponent {
     {
       text: '¿Cómo facilita Human la toma de decisiones en mi empresa?',
       respuesta:
-        'Human ofrece un entorno integrado que conecta y automatiza todos los datos y procesos de tu empresa. Esto permite una visión de conjunto que facilita la toma de decisiones informadas, mejora la eficiencia operativa y reduce los riesgos. Con nuestra plataforma, tendrás toda la información que necesitas en un solo lugar, accesible en tiempo real desde cualquier dispositivo.',
+        'Human ofrece un entorno integrado que conecta y automatiza todos los datos y procesos de tu empresa. Esto permite una visión de conjunto que facilita la toma de decisiones informadas, mejorando la eficiencia operativa y reduciendo los riesgos. Con nuestra plataforma, tendrás toda la información que necesitas en un solo lugar, accesible en tiempo real desde cualquier dispositivo.',
       open: false,
     },
     {
@@ -150,7 +150,7 @@ export class HumanResourceComponent {
   ];
 
   togglePregunta(index: number): void {
-    this.preguntas[index].open = !this.preguntas[index].open; // Alterna el estado de la pregunta
+    this.preguntas[index].open = !this.preguntas[index].open; 
   }
   setActiveButton(index: number): void {
     this.activeButtonIndex = index;
