@@ -185,6 +185,7 @@
   z-index: 1;
 }
 
+/* suscripción */
 .section__subs {
   height: 21rem;
   background: linear-gradient(
@@ -330,7 +331,6 @@
   top: -1rem;
   right: -1rem;
 }
-
 
 .section__contacto .contenedor__contacto {
   height: 100%;
@@ -496,4 +496,145 @@
 
 .section__contacto .contenedor__contacto .form__contacto form .btn_all {
   padding: 0.8rem 2.5rem;
+}
+
+/* hidden */
+.ellipse1_movil {
+  display: none;
+}
+.ellipse2_movil {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* banner */
+  .contenedor__banner .content_banner {
+    margin: 0;
+    width: 90%;
+  }
+  .contenedor__banner {
+    justify-content: center;
+    height: 65vh;
+  }
+  .contenedor__banner h2 {
+    font-size: 3rem;
+  }
+  .contenedor__banner button {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* esperiencia */
+  .section__exp {
+    padding: 4rem 2rem;
+  }
+  .section__exp .contenedor__exp1 {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+  .section__exp .contenedor__exp .text__exp {
+    width: 100%;
+  }
+  .section__exp .contenedor__exp .img__exp img {
+    height: auto;
+  }
+  .section__exp .contenedor__exp .img__exp {
+    width: 100%;
+  }
+  .ellipse23 {
+    width: 3rem;
+    top: auto;
+    bottom: 6rem;
+  }
+  .ellipse24 {
+    width: 3rem;
+    bottom: 1rem;
+  }
+  .ellipse25 {
+    display: none;
+  }
+  .section__exp .contenedor__exp2 {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .section__exp .contenedor__exp3 {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+  .section__exp .contenedor__exp4 {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .section__exp .contenedor__exp5 {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+
+  /* suscripción */
+  .section__subs {
+    padding: 4rem 2rem;
+    height: auto;
+  }
+  .section__subs .contenedor__subs {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .section__subs .contenedor__subs article {
+    width: 100%;
+  }
+  .ellipse26 {
+    display: none;
+  }
+  .ellipse27 {
+    width: 3rem;
+  }
+  .ellipse1_movil {
+    display: block;
+    position: absolute;
+    bottom: 17rem;
+    z-index: 1;
+    left: 0;
+  }
+  .ellipse2_movil {
+    display: block;
+    position: absolute;
+    bottom: 20rem;
+    z-index: 1;
+    right: 0;
+  }
+  .ellipse28 {
+    width: 5rem;
+    left: -2rem;
+    bottom: -2rem;
+  }
+  .ellipse29 {
+    width: 5rem;
+    left: auto;
+    right: -2rem;
+    top: 24rem;
+  }
+  .ellipse30 {
+    right: -2rem;
+    top: 16rem;
+  }
+  .ellipse31 {
+    right: auto;
+    left: -2rem;
+    bottom: -1rem;
+  }
+  .ellipse32 {
+    display: none;
+  }
+  .ellipse33 {
+    display: none;
+  }
+  .ellipse34 {
+    left: -4rem;
+    top: 22rem;
+  }
+  .ellipse35 {
+    left: auto;
+    bottom: -2rem;
+    right: -2rem;
+  }
 }

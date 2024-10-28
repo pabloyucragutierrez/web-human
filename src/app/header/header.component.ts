@@ -3,10 +3,16 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
+  isMenuVisible: boolean = false;
+
   reloadPage() {
-    window.location.reload(); 
+    window.location.reload();
+  }
+
+  toggleMenu() {
+    this.isMenuVisible = !this.isMenuVisible;
   }
 }

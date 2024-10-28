@@ -746,3 +746,44 @@
 .section__psolicitar .contenedor__psolicitar .form__psolicitar form .btn_all {
   padding: 0.7rem 2.5rem;
 }
+
+@media (max-width: 768px) {
+  /* banner */
+  .contenedor__banner .content_banner {
+    margin: 0;
+    width: 90%;
+  }
+  .contenedor__banner {
+    justify-content: center;
+    height: 65vh;
+  }
+  .contenedor__banner h2 {
+    font-size: 3rem;
+  }
+  .contenedor__banner a {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* texto */
+  .section__ptext {
+    padding: 4rem 2rem;
+  }
+  .section__ptext .contenedor__ptext article {
+    width: 100%;
+  }
+
+  /* descubre */
+  .section__pdescubre {
+    padding: 4rem 2rem;
+  }
+  .section__pdescubre .contenedor__pdescubre {
+    flex-direction: column;
+  }
+  .section__pdescubre .contenedor__pdescubre .text__pdescubre {
+    width: 100%;
+  }
+  .section__pdescubre .contenedor__pdescubre .img__pdescubre {
+    width: 100%;
+  }
+}

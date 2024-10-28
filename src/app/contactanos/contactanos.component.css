@@ -27,9 +27,6 @@
   font-size: 1rem;
   color: #fff;
 }
-.contenedor__banner .content_banner button {
-  padding: 0.7rem 2.5rem;
-}
 
 /* card */
 .section__contact {
@@ -71,7 +68,7 @@
 .ellipse38 {
   position: absolute;
   right: 5rem;
-  top:-2rem;
+  top: -2rem;
   z-index: 1;
 }
 
@@ -275,7 +272,7 @@
 .section__talk .contenedor__talk .talk__text p {
   font-size: 1.05rem;
 }
-.section__talk .contenedor__talk .talk__text nav a i{
+.section__talk .contenedor__talk .talk__text nav a i {
   font-size: 1.4rem;
   vertical-align: middle;
 }
@@ -312,7 +309,7 @@
 .ellipse39 {
   position: absolute;
   right: 0;
-  top:-7rem;
+  top: -7rem;
   z-index: 1;
 }
 .ellipse40 {
@@ -326,4 +323,19 @@
   right: 0;
   bottom: 4rem;
   z-index: 1;
+}
+
+@media (max-width: 768px) {
+  /* banner */
+  .contenedor__banner .content_banner {
+    margin: 0;
+    width: 90%;
+  }
+  .contenedor__banner {
+    justify-content: center;
+    height: 60vh;
+  }
+  .contenedor__banner h2 {
+    font-size: 3rem;
+  }
 }

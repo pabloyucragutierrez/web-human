@@ -85,7 +85,7 @@
   margin: 0.5rem 0;
   width: fit-content;
 }
-.section__adm .contenedor__adm .img__adm img{
+.section__adm .contenedor__adm .img__adm img {
   width: 100%;
   object-fit: contain;
 }
@@ -223,7 +223,7 @@
 .section__whuman {
   padding: 0rem 1rem;
   height: 25rem;
-  transition: .3s ease all;
+  transition: 0.3s ease all;
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -726,4 +726,23 @@
   transform: translateY(-50%);
   color: rgba(128, 128, 128, 0.774);
   font-size: 0.9rem;
+}
+
+@media (max-width: 760px) {
+  /* banner */
+  .contenedor__banner .content_banner {
+    margin: 0;
+    width: 90%;
+  }
+  .contenedor__banner {
+    justify-content: center;
+    height: 65vh;
+  }
+  .contenedor__banner h2 {
+    font-size: 3rem;
+  }
+  .contenedor__banner a {
+    width: 100%;
+    text-align: center;
+  }
 }

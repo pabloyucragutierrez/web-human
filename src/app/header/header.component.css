@@ -37,23 +37,67 @@ header .contenedor__header nav ul li a.active {
 header .contenedor__header .menu__movil {
   display: none;
 }
-@media (max-width: 600px) {
+.btn__movil {
+  display: none;
+}
+@media (max-width: 768px) {
   header .contenedor__header {
     justify-content: space-between;
     padding: 1.5rem 1.2rem;
   }
+  header .contenedor__header nav ul {
+    width: 100%;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  header .contenedor__header nav ul li a.active {
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    color: #fff;
+  }
+  header .contenedor__header nav ul li {
+    width: 100%;
+  }
+  header .contenedor__header nav ul li a {
+    color: #fff;
+    font-weight: 300;
+    display: block;
+    width: 100%;
+    padding-bottom: 1rem !important;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  }
+  header .contenedor__header nav.nav__visible {
+    display: block;
+  }
   header .contenedor__header nav {
+    position: absolute;
+    top: 6rem;
+    left: 0%;
+    padding: 3rem 2rem;
+    width: 100%;
+    height: fit-content;
+    display: none;
+    background-color: #385193;
+  }
+  header .contenedor__header .hidden__movil {
     display: none;
   }
-  header .contenedor__header .btn_all {
-    display: none;
+  .btn__movil {
+    display: block;
+    margin-top: 3rem;
+    width: 100%;
+    text-align: center;
   }
-  header .contenedor__header .menu__movil i{
+  header .contenedor__header .menu__movil i {
     font-size: 2.2rem;
     color: #385193;
+    transition: .5s ease all;
   }
   header .contenedor__header .menu__movil {
     background-color: transparent;
+    transition: .5s ease all;
     outline: none;
     border: none;
     display: block;
