@@ -2,7 +2,11 @@
   width: 100%;
   position: relative;
 }
+.logo_login:hover {
+  transform: scale(1.04);
+}
 .logo_login {
+  transform: 0.3s ease all;
   width: 10rem;
   position: absolute;
   left: 1rem;
@@ -53,7 +57,7 @@
 }
 .section__login .contenedor__login .img__login {
   background-image: linear-gradient(#e4aa2fde, #e4aa2fde),
-    url("https://s3-alpha-sig.figma.com/img/8eca/2d8e/48df9f43361033da27ff375a055d165e?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=HtRjE9WY7VhDLENdN7TnxeFFSleiFCqAsBlsGeRyAk65uGKCqXxxahy7OqEVKpEpU~69K~KsREvFA~GuHtMyoQG~KWsTPtql8C0Yx~lzEM4Q-AB0-xRALVhxASqD34b7DH3Tld-ktGPmoudu-PxAQMneh~UezC8aNQgEqBBccBdQocB4oEdBzSwskGzrAENr0FQrSAiWYV7cmAL1UHNv4SMlyHSwD9xsmDb0g88ZcpFZgcZlgQog80RDby83S0lHjoAq2ZWIPNWmnQLgUYDm5MKV1TDH78UU2~kfM~FqYdZenU49g7G-7WblgAmFVpScrkxr6~Uf9o9A1vIm1nkZVQ__");
+    url("/assets/login_fondo.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

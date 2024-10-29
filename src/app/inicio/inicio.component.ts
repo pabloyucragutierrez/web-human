@@ -1,11 +1,11 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css'],
 })
-export class InicioComponent implements OnInit {
+export class InicioComponent implements OnInit, AfterViewInit {
   yearsExperience: number = 0;
   companies: number = 0;
   customerSatisfaction: number = 0;
@@ -16,8 +16,10 @@ export class InicioComponent implements OnInit {
 
   @ViewChild('trabajarSection', { static: true }) trabajarSection!: ElementRef;
   @ViewChild('sliderExito', { static: false }) sliderExito!: ElementRef;
+  @ViewChild('video', { static: false }) videoElement!: ElementRef<HTMLVideoElement>; // Referencia al video
 
   activeButton: 'left' | 'right' = 'right';
+
   ngOnInit(): void {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -32,6 +34,15 @@ export class InicioComponent implements OnInit {
     );
 
     observer.observe(this.trabajarSection.nativeElement);
+  }
+
+  ngAfterViewInit() {
+    // Configurar el video para reproducirse automáticamente
+    const video = this.videoElement.nativeElement;
+    video.muted = true; // Mutear el video para permitir autoplay en Chrome
+    video.play().catch(error => {
+      console.error("Error al reproducir el video automáticamente:", error);
+    });
   }
 
   animateNumbers() {

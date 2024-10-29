@@ -57,6 +57,11 @@
   margin-top: 1rem;
 }
 
+.footer-column ul li p{
+  margin: .8rem 0;
+  font-size: 1rem;
+}
+.footer-column ul li p,
 .footer-column ul li a {
   font-weight: 100;
 }

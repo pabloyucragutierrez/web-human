@@ -3,7 +3,7 @@
   height: 80vh;
   width: 100%;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
-    url("https://s3-alpha-sig.figma.com/img/c89a/62cd/dfa6a8417c25afb667dbb0272a46c48d?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=p2Lpv-elKOuDrn2TV8EeAnlcTs5UlMrDzBgQGtz6mmoMAo6~zF5cqIo2Egowv1nHUiVL-rit6n2LBD~CX0YhnM56S94I2-0YRckeWfExCH9AMc4gSx8RGLRkyUhTPwZEmGlNhHYcvGgjeSdqyR2kE-zvZTVm1uHbtZPS4fhhQWmPbMFe4dSVK487WVG7ng~fqblG0JDAYzRxoOxZTc~q7U72i~JD-dgrqTL4-3Yc3nZlJpXMsBGWWwVGHHckGEOB~a8NbsimWA79nIuvZiWltmkZDBgVXtKe6qgvZS5mifLn5mG7wpbPQXIRxOr-fGNLxqlVD8mJrqvcEpg8zwGx-g__");
+    url("/assets/img_banner2.png");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
