@@ -87,6 +87,59 @@ main,
   animation: pulse 2.5s infinite;
 }
 
+/* cookies */
+.card__cookies {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 35rem;
+  height: fit-content;
+  padding: 2rem;
+  z-index: 1000;
+  border-radius: 20px;
+  background-color: white;
+}
+.ellipse_cookie{
+  position: absolute;
+  right: 0;
+  top: 4rem;
+  z-index: -1;
+}
+.card__cookies article {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.card__cookies article .title__cookies h2 {
+  font-weight: 400;
+}
+.card__cookies article .title__cookies {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.card__cookies article p {
+  font-size: 1rem;
+}
+.card__cookies article .opciones__cookies {
+  display: flex;
+  justify-content: space-between;
+}
+.card__cookies article .opciones__cookies button.cookie_active {
+  background-color: #385193;
+  color: #fff;
+}
+.card__cookies article .opciones__cookies button {
+  padding: 0.8rem 0.6rem;
+  border-radius: 12px;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid #385193;
+  color: #385193;
+  outline: none;
+}
+
 @keyframes pulse {
   0% {
     transform: scale(1);

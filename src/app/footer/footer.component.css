@@ -53,8 +53,8 @@
 .footer-column ul {
   padding: 0;
   padding-left: 1rem;
-  margin: 0;
-  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .footer-column ul li p{

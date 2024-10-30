@@ -7,3 +7,41 @@
     <span class="custom-pulsing-circle second"></span>
   </div>
 </a>
+
+<!-- <div class="cookie-card" *ngIf="showCookieCard">
+  <div class="cookie-content">
+    <i class="bx bx-cookie cookie-icon"></i>
+    <div class="cookie-text">
+      <h3 class="cookie-title">Cookies en este sitio</h3>
+      <p class="cookie-message">
+        Utilizamos cookies para mejorar tu experiencia en nuestro sitio web. Al
+        aceptar, consientes el uso de cookies de acuerdo con nuestra política de
+        privacidad.
+      </p>
+    </div>
+  </div>
+  <div class="cookie-actions">
+    <button class="btn-accept" (click)="acceptCookies()">Aceptar</button>
+    <button class="btn-decline" (click)="declineCookies()">Rechazar</button>
+  </div>
+</div> -->
+
+<div class="card__cookies" *ngIf="showCookieCard">
+  <article>
+    <div class="title__cookies">
+      <img src="assets/logo_cookies.png" alt="" />
+      <h2>Este sitio web utiliza cookies</h2>
+    </div>
+    <p>
+      Utilizamos cookies propias y de terceros para mejorar tu experiencia de
+      navegación, analizar el uso del sitio y personalizar el contenido. Puedes
+      aceptar todas las cookies o configurar tus preferencias.
+    </p>
+    <div class="opciones__cookies">
+      <button>Política de cookies</button>
+      <button>Configurar Cookies</button>
+      <button class="cookie_active" (click)="acceptCookies()">Aceptar todas la cookies</button>
+    </div>   
+  </article>
+  <img src="assets/ellipse_cookie.png"  class="ellipse_cookie" alt="">
+</div>
