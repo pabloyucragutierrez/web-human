@@ -3,20 +3,34 @@
     <img
       class="logo_header"
       src="assets/logo_header.png"
-      alt="Web Human"
-      (click)="reloadPage()"
+      alt="Human 3.0"
+      onclick="location.href='/inicio'"
     />
-    <nav [ngClass]="{ 'nav__visible': isMenuVisible }" class="nav__header">
+    <nav [ngClass]="{ nav__visible: isMenuVisible }" class="nav__header">
       <ul>
         <li><a routerLink="/inicio" routerLinkActive="active">Inicio</a></li>
-        <li><a routerLink="/human-resource" routerLinkActive="active">Human Resource 3.0</a></li>
-        <li><a routerLink="/partners" routerLinkActive="active">Partners</a></li>
-        <li><a routerLink="/nosotros" routerLinkActive="active">Sobre Nosotros</a></li>
-        <li><a routerLink="/contactanos" routerLinkActive="active">Contáctanos</a></li>
+        <li>
+          <a routerLink="/human-resource" routerLinkActive="active"
+            >Human Resource 3.0</a
+          >
+        </li>
+        <li>
+          <a routerLink="/partners" routerLinkActive="active">Partners</a>
+        </li>
+        <li>
+          <a routerLink="/nosotros" routerLinkActive="active">Sobre Nosotros</a>
+        </li>
+        <li>
+          <a routerLink="/contactanos" routerLinkActive="active">Contáctanos</a>
+        </li>
       </ul>
-      <a routerLink="/iniciar-sesion" class="btn_all btn__movil">Iniciar sesión</a>
+      <a routerLink="/iniciar-sesion" class="btn_all btn__movil"
+        >Iniciar sesión</a
+      >
     </nav>
-    <a routerLink="/iniciar-sesion" class="btn_all hidden__movil">Iniciar sesión</a>
+    <a routerLink="/iniciar-sesion" class="btn_all hidden__movil"
+      >Iniciar sesión</a
+    >
     <button class="menu__movil" (click)="toggleMenu()">
       <i *ngIf="!isMenuVisible" class="bx bx-menu"></i>
       <i *ngIf="isMenuVisible" class="bx bx-x"></i>

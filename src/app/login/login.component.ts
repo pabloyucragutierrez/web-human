@@ -10,7 +10,4 @@ export class LoginComponent {
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
-  reloadPage() {
-    window.location.reload(); 
-  }
 }

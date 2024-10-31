@@ -88,18 +88,31 @@ main,
 }
 
 /* cookies */
-.card__cookies {
+.container__cookies {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+.no-scroll {
+  overflow: hidden;
+}
+
+.card__cookies {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 35rem;
   height: fit-content;
   padding: 2rem;
-  z-index: 1000;
   border-radius: 20px;
   background-color: white;
 }
-.ellipse_cookie{
+.ellipse_cookie {
   position: absolute;
   right: 0;
   top: 4rem;
@@ -133,11 +146,32 @@ main,
 .card__cookies article .opciones__cookies button {
   padding: 0.8rem 0.6rem;
   border-radius: 12px;
+  width: 47%;
   background-color: transparent;
   cursor: pointer;
   border: 2px solid #385193;
   color: #385193;
   outline: none;
+}
+
+/* botón para volver arriba */
+.btn__up {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: #385193;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.btn__up i {
+  font-size: 2.5rem;
+  color: #fff;
 }
 
 @keyframes pulse {

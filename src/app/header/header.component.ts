@@ -8,10 +8,6 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   isMenuVisible: boolean = false;
 
-  reloadPage() {
-    window.location.reload();
-  }
-
   toggleMenu() {
     this.isMenuVisible = !this.isMenuVisible;
   }
