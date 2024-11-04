@@ -325,6 +325,9 @@
   z-index: 1;
 }
 
+.movil__contacto {
+  display: none !important;
+}
 @media (max-width: 768px) {
   /* banner */
   .contenedor__banner .content_banner {
@@ -335,7 +338,97 @@
     justify-content: center;
     height: 60vh;
   }
-  .contenedor__banner h2 {
-    font-size: 3rem;
+  .contenedor__banner .content_banner h2 {
+    font-size: 2.4rem;
+  }
+  .contenedor__banner a {
+    width: 90%;
+    text-align: center;
+  }
+
+  /* card */
+  .section__contact {
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .card__contact {
+    width: 100%;
+  }
+  .card__contact article {
+    width: 100%;
+  }
+  .ellipse36 {
+    display: none;
+  }
+  .ellipse37 {
+    left: -5rem;
+  }
+  .ellipse38 {
+    right: -5rem;
+  }
+
+  /* formulario */
+  .section__contacto {
+    padding: 4rem 2rem;
+    position: relative;
+  }
+  .section__contacto .contenedor__contacto {
+    flex-direction: column;
+  }
+  .section__contacto .contenedor__contacto .text__contacto {
+    width: 100%;
+  }
+  .section__contacto .contenedor__contacto .form__contacto {
+    width: 100%;
+  }
+  .section__contacto .contenedor__contacto .form__contacto form .content__form {
+    width: 100%;
+  }
+  .section__contacto
+    .contenedor__contacto
+    .form__contacto
+    form
+    .content_checks
+    .check {
+    width: 100%;
+  }
+  .desktop__contacto {
+    display: none !important;
+  }
+  .section__contacto .contenedor__contacto .form__contacto form .btn_all {
+    padding: 0.8rem 2.5rem;
+    width: 100%;
+    text-align: center;
+  }
+  .movil__contacto {
+    display: flex !important;
+  }
+  .contact__movil__img {
+    width: 100%;
+  }
+  .ellipse39 {
+    display: none;
+  }
+  .ellipse40 {
+    display: none;
+  }
+  .ellipse41 {
+    display: none;
+  }
+
+  /* talk */
+  .section__talk {
+    padding: 4rem 2rem;
+  }
+
+  .section__talk .contenedor__talk {
+    gap: 4rem;
+  }
+  .section__talk .contenedor__talk .talk__text {
+    width: 100%;
+  }
+  .section__talk .contenedor__talk .talk__img {
+    width: 100%;
   }
 }

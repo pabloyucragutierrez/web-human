@@ -16,7 +16,9 @@ export class HumanResourceComponent {
     this.isModalOpen = false;
   }
 
-  activeButtonIndex: number = 0;
+  activeButtonIndexDesktop: number = 0; // Para el contenedor de escritorio
+  activeButtonIndexMobile: number = -1; // Para el contenedor móvil, inicia sin ningún botón activo
+
   activeOptionIndex: number = 0;
 
   articles = [
@@ -152,8 +154,15 @@ export class HumanResourceComponent {
   togglePregunta(index: number): void {
     this.preguntas[index].open = !this.preguntas[index].open; 
   }
-  setActiveButton(index: number): void {
-    this.activeButtonIndex = index;
+
+  // Método para el contenedor de escritorio
+  setActiveButtonDesktop(index: number): void {
+    this.activeButtonIndexDesktop = index;
+  }
+
+  // Método para el contenedor móvil
+  toggleButtonMobile(index: number): void {
+    this.activeButtonIndexMobile = this.activeButtonIndexMobile === index ? -1 : index;
   }
 
   setActiveOption(index: number): void {

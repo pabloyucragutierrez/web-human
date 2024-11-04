@@ -161,3 +161,19 @@
   margin-bottom: 2rem;
   align-items: center;
 }
+
+@media (max-width: 768px) {
+  .section__login .contenedor__login article {
+    width: 100%;
+  }
+  .section__login .contenedor__login .img__login {
+    display: none;
+  }
+  .close_login i {
+    font-size: 2.5rem;
+    color: #000;
+  }
+  .section__login .contenedor__login .content__login {
+    width: 90%;
+  }
+}

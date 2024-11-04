@@ -10,6 +10,8 @@
   <section class="section__adm">
     <img src="assets/ellipse44.png" class="ellipse44" alt="" />
     <img src="assets/ellipse45.png" class="ellipse45" alt="" />
+    <img src="assets/ellipse44_movil.png" class="ellipse44_movil" alt="" />
+    <img src="assets/ellipse45_movil.png" class="ellipse45_movil" alt="" />
     <div class="contain_s contenedor__adm">
       <img src="assets/ellipse46.png" class="ellipse46" alt="" />
       <img src="assets/ellipse47.png" class="ellipse47" alt="" />
@@ -48,36 +50,36 @@
         <span class="orange">Human</span>
       </div>
     </h2>
-    <div class="contain_s contenedor__mhuman">
+    <div class="contain_s contenedor__mhuman desktop__contacto">
       <div class="content__badges">
         <button
-          [ngClass]="{ active__human: activeButtonIndex === 0 }"
-          (click)="setActiveButton(0)"
+          [ngClass]="{ active__human: activeButtonIndexDesktop === 0 }"
+          (click)="setActiveButtonDesktop(0)"
         >
           Gestión y organización de personal
         </button>
         <button
-          [ngClass]="{ active__human: activeButtonIndex === 1 }"
-          (click)="setActiveButton(1)"
+          [ngClass]="{ active__human: activeButtonIndexDesktop === 1 }"
+          (click)="setActiveButtonDesktop(1)"
         >
           Análisis y Evaluación
         </button>
         <button
-          [ngClass]="{ active__human: activeButtonIndex === 2 }"
-          (click)="setActiveButton(2)"
+          [ngClass]="{ active__human: activeButtonIndexDesktop === 2 }"
+          (click)="setActiveButtonDesktop(2)"
         >
           Integración y Personalización
         </button>
         <button
-          [ngClass]="{ active__human: activeButtonIndex === 3 }"
-          (click)="setActiveButton(3)"
+          [ngClass]="{ active__human: activeButtonIndexDesktop === 3 }"
+          (click)="setActiveButtonDesktop(3)"
         >
           Reclutamiento y Selección
         </button>
       </div>
 
       <div class="cards__human">
-        <article *ngFor="let article of articles[activeButtonIndex]">
+        <article *ngFor="let article of articles[activeButtonIndexDesktop]">
           <img [src]="article.img" alt="" />
           <div class="text__human">
             <h3>{{ article.title }}</h3>
@@ -86,10 +88,98 @@
         </article>
       </div>
     </div>
+
+    <div class="contain_s contenedor__mhuman movil__contacto">
+      <div class="content__badges">
+        <button
+          [ngClass]="{ active__human: activeButtonIndexMobile === 0 }"
+          (click)="toggleButtonMobile(0)"
+        >
+          Gestión y organización de personalización
+          <i
+            class="bx"
+            [class.bx-chevron-down]="activeButtonIndexMobile !== 0"
+            [class.bx-chevron-up]="activeButtonIndexMobile === 0"
+          ></i>
+        </button>
+        <div class="cards__human" *ngIf="activeButtonIndexMobile === 0">
+          <article *ngFor="let article of articles[0]">
+            <img [src]="article.img" alt="" />
+            <div class="text__human">
+              <h3>{{ article.title }}</h3>
+              <p>{{ article.description }}</p>
+            </div>
+          </article>
+        </div>
+
+        <button
+          [ngClass]="{ active__human: activeButtonIndexMobile === 1 }"
+          (click)="toggleButtonMobile(1)"
+        >
+          Análisis y Evaluación
+          <i
+            class="bx"
+            [class.bx-chevron-down]="activeButtonIndexMobile !== 1"
+            [class.bx-chevron-up]="activeButtonIndexMobile === 1"
+          ></i>
+        </button>
+        <div class="cards__human" *ngIf="activeButtonIndexMobile === 1">
+          <article *ngFor="let article of articles[1]">
+            <img [src]="article.img" alt="" />
+            <div class="text__human">
+              <h3>{{ article.title }}</h3>
+              <p>{{ article.description }}</p>
+            </div>
+          </article>
+        </div>
+
+        <button
+          [ngClass]="{ active__human: activeButtonIndexMobile === 2 }"
+          (click)="toggleButtonMobile(2)"
+        >
+          Integración y Personalización
+          <i
+            class="bx"
+            [class.bx-chevron-down]="activeButtonIndexMobile !== 2"
+            [class.bx-chevron-up]="activeButtonIndexMobile === 2"
+          ></i>
+        </button>
+        <div class="cards__human" *ngIf="activeButtonIndexMobile === 2">
+          <article *ngFor="let article of articles[2]">
+            <img [src]="article.img" alt="" />
+            <div class="text__human">
+              <h3>{{ article.title }}</h3>
+              <p>{{ article.description }}</p>
+            </div>
+          </article>
+        </div>
+
+        <button
+          [ngClass]="{ active__human: activeButtonIndexMobile === 3 }"
+          (click)="toggleButtonMobile(3)"
+        >
+          Reclutamiento y Selección
+          <i
+            class="bx"
+            [class.bx-chevron-down]="activeButtonIndexMobile !== 3"
+            [class.bx-chevron-up]="activeButtonIndexMobile === 3"
+          ></i>
+        </button>
+        <div class="cards__human" *ngIf="activeButtonIndexMobile === 3">
+          <article *ngFor="let article of articles[3]">
+            <img [src]="article.img" alt="" />
+            <div class="text__human">
+              <h3>{{ article.title }}</h3>
+              <p>{{ article.description }}</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section
-    class="section__whuman"
+    class="section__whuman desktop__contacto2"
     [ngStyle]="{
       'background-image':
         'linear-gradient(74.4deg, rgba(24, 34, 62, 0) -15.93%, rgba(31, 45, 81, 0.7) 53.85%), ' +
@@ -139,7 +229,71 @@
       </article>
     </div>
   </section>
+  <section class="section__whuman__movil movil__contacto2">
+    <div class="banner__whuman__movil">
+      <h2>¿Por qué elegir Human?</h2>
+    </div>
+    <div class="c__whuman__movil">
+      <article>
+        <b><img src="assets/hub.png" alt="" />Centralización de operaciones</b>
+        <p>
+          Human centraliza todas las operaciones de recursos humanos en una
+          plataforma única y eficiente. Simplifica la administración diaria al
+          tener toda la información de empleados, nóminas, tiempo y asistencia
+          en un solo lugar, permitiendo una gestión más ágil y ordenada.
+        </p>
+      </article>
+      <article>
+        <b><img src="assets/settings.png" alt="" />Personalización flexible</b>
+        <p>
+          Adapta Human a las necesidades específicas de tu empresa con nuestras
+          opciones de personalización. Personaliza flujos de trabajo, informes y
+          módulos para que se alineen perfectamente con tus procesos,
+          garantizando que la plataforma funcione como una extensión natural de
+          tu equipo.
+        </p>
+      </article>
+      <article>
+        <b>
+          <img src="assets/manufacturing.png" alt="" />Integraciones perfectas
+        </b>
+        <p>
+          Conecta Human con tus aplicaciones favoritas para una experiencia sin
+          interrupciones. Las integraciones fluidas con sistemas de
+          contabilidad, gestión de proyectos y otras herramientas esenciales
+          aseguran una transferencia de datos sin problemas, mejorando la
+          eficiencia operativa y reduciendo errores.
+        </p>
+      </article>
+      <article>
+        <b>
+          <img src="assets/monitoring.png" alt="" />Mejora de la productividad
+        </b>
+        <p>
+          Optimiza procesos y reduce el tiempo dedicado a tareas
+          administrativas. Human automatiza tareas rutinarias como la gestión de
+          nóminas, el seguimiento del tiempo y la organización de documentos,
+          liberando a tu equipo para que se concentre en actividades
+          estratégicas y de alto valor.
+        </p>
+      </article>
+      <article>
+        <b>
+          <img src="assets/check_human.png" alt="" />Potenciación del talento
+        </b>
+        <p>
+          Gestiona el ciclo de vida del empleado, desde el reclutamiento hasta
+          la evaluación del desempeño y la planificación de la carrera. Human
+          ofrece herramientas robustas para identificar, desarrollar y retener
+          talento, ayudando a construir un equipo fuerte y motivado.
+        </p>
+      </article>
+    </div>
+  </section>
   <section class="section__moderniza">
+    <img src="assets/ellipse48_movil.png" class="ellipse48_movil" alt="" />
+    <img src="assets/ellipse49_movil.png" class="ellipse49_movil" alt="" />
+    <img src="assets/ellipse50_movil.png" class="ellipse50_movil" alt="" />
     <div class="contain_s contenedor__moderniza">
       <img src="assets/ellipse48.png" class="ellipse48" alt="" />
       <img src="assets/ellipse49.png" class="ellipse49" alt="" />
@@ -173,11 +327,7 @@
             tiempo
           </li>
         </ul>
-        <img
-          src="assets/word__human.png"
-          alt=""
-          class="img__moderniza"
-        />
+        <img src="assets/word__human.png" alt="" class="img__moderniza" />
       </article>
       <article class="form__moderniza">
         <form action="">
