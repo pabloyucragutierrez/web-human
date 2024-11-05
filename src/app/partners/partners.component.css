@@ -776,7 +776,7 @@
     font-size: 2.4rem;
   }
   .contenedor__banner a {
-    width: 90%;
+    width: fit-content;
     text-align: center;
   }
 

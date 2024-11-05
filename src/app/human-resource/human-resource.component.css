@@ -748,6 +748,10 @@
 .ellipse50_movil {
   display: none;
 }
+
+.title__movil {
+  display: none !important;
+}
 @media (max-width: 760px) {
   /* banner */
   .contenedor__banner .content_banner {
@@ -757,9 +761,33 @@
   .contenedor__banner {
     justify-content: center;
     height: 65vh;
+    position: relative;
+    z-index: 1;
+    background-image: url("/assets/img_banner2.png");
+    background-position: -17rem;
+    background-size: cover;
+    overflow: hidden;
+  }
+
+  .contenedor__banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.1));
+    -webkit-mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 0.1)
+    );
   }
   .contenedor__banner .content_banner h2 {
     font-size: 2.4rem;
+    width: 60%;
   }
   .contenedor__banner a {
     width: 90%;
@@ -831,7 +859,12 @@
     right: -1rem;
     top: 30rem;
   }
-
+  .title__desktop {
+    display: none !important;
+  }
+  .title__movil {
+    display: flex !important;
+  }
   /* módulo human */
   .section__mhuman {
     padding: 3rem 2rem;
@@ -873,6 +906,9 @@
   .section__mhuman .contenedor__mhuman .cards__human article {
     width: 100%;
     height: fit-content;
+  }
+  .section__mhuman .contenedor__mhuman .cards__human article .text__human h3 {
+    font-size: 1.6rem;
   }
 
   /* elegir */
@@ -928,6 +964,9 @@
   .section__moderniza {
     padding: 3rem 2rem;
     position: relative;
+  }
+  .section__moderniza .contenedor__moderniza {
+    gap: 3rem;
   }
   .section__moderniza .contenedor__moderniza .text__moderniza {
     width: 100%;
@@ -990,9 +1029,10 @@
 
   /* preguntas frecuentes */
   .section__preguntas {
-    padding: 3rem 2rem;
+    padding: 0 2rem 3rem 2rem; 
     position: relative;
-  }
+}
+
   .section__preguntas .contenedor__preguntas .article__preguntas {
     height: 9rem;
     border-radius: 2rem;
@@ -1031,8 +1071,8 @@
     display: none;
   }
 
-/* modal empezar ahora */
-.modal__software .form__moderniza {
-  width: 90%;
-}
+  /* modal empezar ahora */
+  .modal__software .form__moderniza {
+    width: 90%;
+  }
 }

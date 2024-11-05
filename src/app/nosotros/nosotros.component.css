@@ -520,7 +520,7 @@
     font-size: 2.4rem;
   }
   .contenedor__banner button {
-    width: 90%;
+    width: fit-content;
     text-align: center;
   }
 
