@@ -261,7 +261,8 @@
   font-weight: 400;
   width: 100%;
   height: 100%;
-  padding: 0rem 1rem 0rem 2.4rem;
+  resize: none;
+  padding: 1rem 1rem 1rem 2.4rem;
   outline: none;
 }
 .section__subs .contenedor__subs article .form__text .content__icon img {
@@ -506,6 +507,14 @@
   display: none;
 }
 
+.btn__movil {
+  display: none;
+}
+
+.title__movil {
+  display: none !important;
+}
+
 @media (max-width: 768px) {
   /* banner */
   .contenedor__banner .content_banner {
@@ -518,12 +527,20 @@
   }
   .contenedor__banner .content_banner h2 {
     font-size: 2.4rem;
+    width: 70%;
+    height: 19rem;
   }
   .contenedor__banner button {
     width: fit-content;
     text-align: center;
   }
 
+  .btn__desktop {
+    display: none;
+  }
+  .btn__movil {
+    display: block;
+  }
   /* esperiencia */
   .section__exp {
     padding: 4rem 2rem;
@@ -537,6 +554,8 @@
   }
   .section__exp .contenedor__exp .img__exp img {
     height: auto;
+    width: 110%;
+    margin-left: -1rem;
   }
   .section__exp .contenedor__exp .img__exp {
     width: 100%;
@@ -575,6 +594,31 @@
     padding: 4rem 2rem;
     height: auto;
   }
+  .title__movil {
+    display: flex !important;
+  }
+  .title__desktop {
+    display: none !important;
+  }
+  .section__subs .contenedor__subs article .form__text .content__icon {
+    height: 4rem;
+  }
+  .section__subs .contenedor__subs article .form__text .content__icon .input {
+    width: 60%;
+  }
+  .section__subs
+    .contenedor__subs
+    article
+    .form__text
+    .content__icon
+    .btn__sub {
+    height: 60%;
+  }
+
+  /* #subscribete {
+    padding-top: 30px;
+    margin-top: -50px;
+  } */
   .section__subs .contenedor__subs {
     flex-direction: column;
     gap: 2rem;

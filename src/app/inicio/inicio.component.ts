@@ -1,4 +1,10 @@
-import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
 
 @Component({
   selector: 'app-inicio',
@@ -16,66 +22,71 @@ export class InicioComponent implements OnInit, AfterViewInit {
 
   @ViewChild('trabajarSection', { static: true }) trabajarSection!: ElementRef;
   @ViewChild('sliderExito', { static: false }) sliderExito!: ElementRef;
-  @ViewChild('video', { static: false }) videoElement!: ElementRef<HTMLVideoElement>; // Referencia al video
+  @ViewChild('video', { static: false })
+  videoElement!: ElementRef<HTMLVideoElement>;
 
   activeButton: 'left' | 'right' = 'right';
+  hasAnimated: boolean = false;
 
   ngOnInit(): void {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            this.animateNumbers();
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.8 }
-    );
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !this.hasAnimated) {
+              this.animateNumbers();
+              this.hasAnimated = true;
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
 
-    observer.observe(this.trabajarSection.nativeElement);
+      observer.observe(this.trabajarSection.nativeElement);
+    } else {
+      this.animateNumbers();
+      this.hasAnimated = true;
+    }
   }
 
   ngAfterViewInit() {
-    // Configurar el video para reproducirse automáticamente
     const video = this.videoElement.nativeElement;
-    video.muted = true; // Mutear el video para permitir autoplay en Chrome
-    video.play().catch(error => {
-      console.error("Error al reproducir el video automáticamente:", error);
+    video.muted = true;
+    video.play().catch((error) => {
+      console.error('Error al reproducir el video automáticamente:', error);
     });
   }
 
   animateNumbers() {
     const duration = 5000;
-    const yearsStepTime =
-      duration / (this.finalYearsExperience - this.yearsExperience);
-    const yearsInterval = setInterval(() => {
+    const yearsInterval = duration / this.finalYearsExperience;
+    const companiesInterval = duration / (this.finalCompanies / 5);
+    const satisfactionInterval = duration / this.finalCustomerSatisfaction;
+
+    const yearsTimer = setInterval(() => {
       if (this.yearsExperience < this.finalYearsExperience) {
         this.yearsExperience++;
       } else {
-        clearInterval(yearsInterval);
+        clearInterval(yearsTimer);
       }
-    }, yearsStepTime);
+    }, yearsInterval);
 
-    const companiesStepTime =
-      duration / ((this.finalCompanies - this.companies) / 5);
-    const companiesInterval = setInterval(() => {
+    const companiesTimer = setInterval(() => {
       if (this.companies < this.finalCompanies) {
         this.companies += 5;
       } else {
-        clearInterval(companiesInterval);
+        clearInterval(companiesTimer);
       }
-    }, companiesStepTime);
+    }, companiesInterval);
 
-    const satisfactionStepTime =
-      duration / (this.finalCustomerSatisfaction - this.customerSatisfaction);
-    const satisfactionInterval = setInterval(() => {
+    const satisfactionTimer = setInterval(() => {
       if (this.customerSatisfaction < this.finalCustomerSatisfaction) {
         this.customerSatisfaction++;
       } else {
-        clearInterval(satisfactionInterval);
+        clearInterval(satisfactionTimer);
       }
-    }, satisfactionStepTime);
+    }, satisfactionInterval);
   }
 
   leftExito() {

@@ -1,5 +1,5 @@
 <router-outlet></router-outlet>
-<a href="https://wa.me/51997412340" target="_blank">
+<a *ngIf="showWhatsAppIcon" href="https://wa.me/51997412340" target="_blank">
   <div class="custom-whatsapp-icon-container">
     <i class="bx bxl-whatsapp custom-whatsapp-icon"></i>
     <span class="custom-notification-badge">1</span>
@@ -7,9 +7,6 @@
     <span class="custom-pulsing-circle second"></span>
   </div>
 </a>
-
-
-
 
 <div class="container__cookies" *ngIf="showCookieCard">
   <div class="card__cookies">

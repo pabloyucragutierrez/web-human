@@ -328,6 +328,10 @@
 .movil__contacto {
   display: none !important;
 }
+
+.img__movil {
+  display: none;
+}
 @media (max-width: 768px) {
   /* banner */
   .contenedor__banner .content_banner {
@@ -340,6 +344,8 @@
   }
   .contenedor__banner .content_banner h2 {
     font-size: 2.4rem;
+    width: 100%;
+    height: 19rem;
   }
   .contenedor__banner a {
     width: fit-content;
@@ -375,6 +381,19 @@
   }
   .section__contacto .contenedor__contacto {
     flex-direction: column;
+  }
+  .img__movil{
+    display: block;
+    width: 100%;
+    margin-top: 2rem;
+  }
+  .img__desktop {
+
+    display: none;
+  }
+  .column__reverse {
+    display: flex;
+    flex-direction: column-reverse;
   }
   .section__contacto .contenedor__contacto .text__contacto {
     width: 100%;

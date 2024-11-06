@@ -37,6 +37,11 @@ const routes: Routes = [
     path: 'iniciar-sesion',
     component: LoginComponent,
   },
+  {
+    path: '**',
+    redirectTo: 'inicio',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

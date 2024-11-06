@@ -787,7 +787,8 @@
   }
   .contenedor__banner .content_banner h2 {
     font-size: 2.4rem;
-    width: 60%;
+    width: 70%;
+    height: 19rem;
   }
   .contenedor__banner a {
     width: 90%;
@@ -1058,12 +1059,12 @@
     .respuesta__content {
     padding: 2rem 1.5rem;
   }
-  .ellipse51 {
+  /* .ellipse51 {
     display: none;
   }
   .ellipse52 {
     display: none;
-  }
+  } */
   .ellipse53 {
     display: none;
   }

@@ -6,7 +6,10 @@
       Más de 10 años transformando la gestión de recursos humanos con tecnología
       avanzada
     </p>
-    <button class="btn_all" (click)="openModal()">Empezar ahora</button>
+    <button class="btn_all btn__desktop" (click)="openModal()">
+      Empezar ahora
+    </button>
+    <a href="/nosotros#subscribete" class="btn_all btn__movil">Empezar ahora</a>
   </div>
 </div>
 <div class="main__section">
@@ -121,14 +124,24 @@
       </article>
     </div>
   </section>
-  <section class="section__subs">
+  <section class="section__subs" id="subscribete">
     <div class="contain_s contenedor__subs">
       <article>
-        <h2>
+        <h2 class="title__desktop">
           <div>El futuro de la gestión de</div>
           <div>recursos humanos está aquí.</div>
           <div>
             <span class="orange">¿Estás listo para ser parte?</span>
+          </div>
+        </h2>
+        <h2 class="title__movil">
+          <div>El futuro de la gestión de</div>
+          <div>recursos humanos está aquí.</div>
+          <div>
+            <span class="orange">¿Estás listo</span>
+          </div>
+          <div>
+            <span class="orange">para ser parte?</span>
           </div>
         </h2>
       </article>
@@ -137,13 +150,12 @@
           <div class="content__icon">
             <img src="assets/email_img.png" alt="" />
             <button class="btn__sub">Regístrate</button>
-            <input
-              type="email"
-              placeholder="Correo electrónico corporativo"
-              class="input"
+            <textarea
               name=""
               id=""
-            />
+              class="input"
+              placeholder="Correo electrónico corporativo"
+            ></textarea>
           </div>
         </div>
       </article>
@@ -152,7 +164,7 @@
 </div>
 
 <div class="modal__contacto" *ngIf="isModalOpen">
-  <section class="section__contacto" >
+  <section class="section__contacto">
     <button class="close__software" (click)="closeModal()">
       <i class="bx bx-x"></i>
     </button>
@@ -204,7 +216,7 @@
                 <option value="101">De 101 a 200 colaboradores</option>
                 <option value="201">De 201 a 500 colaboradores</option>
                 <option value="501">Más de 500 colaboradores</option>
-              </select>  
+              </select>
             </div>
           </div>
           <div class="content__form">
