@@ -915,7 +915,7 @@
   .contenedor__banner .content_banner h2 {
     font-size: 2.4rem;
     width: 70%;
-    height: 19rem;
+    /* height: 19rem; */
   }
   .btitle__desktop{
     display: none;

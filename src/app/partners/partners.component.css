@@ -26,6 +26,7 @@
 .contenedor__banner .content_banner p {
   font-size: 1rem;
   color: #fff;
+  margin-bottom: 1.5rem;
 }
 .contenedor__banner .content_banner .btn_all {
   padding: 0.7rem 2.5rem;
@@ -778,7 +779,6 @@
   .contenedor__banner .content_banner h2 {
     font-size: 2.4rem;
     width: 70%;
-    height: 19rem;
   }
   .contenedor__banner a {
     width: fit-content;

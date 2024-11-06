@@ -196,7 +196,26 @@
   .section__login .contenedor__login .img__login {
     width: 100% !important;
     height: 100vh !important;
+    position: relative; /* Para poder usar el pseudo-elemento */
+    background-image: url("/assets/login_fondo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+    background-position: -30rem 3rem;
   }
+  
+  .section__login .contenedor__login .img__login::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(228, 170, 47, 0.9); /* Color amarillo semi-transparente */
+    z-index: -1; /* Colocamos el pseudo-elemento detrás de la imagen */
+    pointer-events: none; /* Para que no interfiera con la interacción del usuario */
+  }
+ 
   .close_login i {
     font-size: 2.5rem;
     color: #000;

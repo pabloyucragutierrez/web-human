@@ -528,7 +528,6 @@
   .contenedor__banner .content_banner h2 {
     font-size: 2.4rem;
     width: 70%;
-    height: 19rem;
   }
   .contenedor__banner button {
     width: fit-content;
@@ -615,10 +614,10 @@
     height: 60%;
   }
 
-  /* #subscribete {
-    padding-top: 30px;
+  #subscribete {
+    padding-top: 50px;
     margin-top: -50px;
-  } */
+  }
   .section__subs .contenedor__subs {
     flex-direction: column;
     gap: 2rem;
