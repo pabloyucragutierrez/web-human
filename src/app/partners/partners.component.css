@@ -91,7 +91,7 @@
   background-position: center;
   background-size: cover;
 } */
-.section__pdescubre .contenedor__pdescubre .text__pdescubre ul li img{
+.section__pdescubre .contenedor__pdescubre .text__pdescubre ul li img {
   width: 1.5em !important;
   height: 1.5rem !important;
 }
@@ -775,6 +775,15 @@
   .contenedor__banner {
     justify-content: center;
     height: 65vh;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.1)
+      ),
+      url("/assets/img_banner3_movil.png");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
   }
   .contenedor__banner .content_banner h2 {
     font-size: 2.4rem;

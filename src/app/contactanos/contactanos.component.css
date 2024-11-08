@@ -341,6 +341,11 @@
   .contenedor__banner {
     justify-content: center;
     height: 60vh;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
+    url("/assets/img_banner5_movil.png");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
   }
   .contenedor__banner .content_banner h2 {
     font-size: 2.4rem;

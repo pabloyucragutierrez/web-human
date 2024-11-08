@@ -248,15 +248,25 @@ main,
   }
 }
 
-@media (max-width:768px){
-  .card__cookies{
+@media (max-width: 768px) {
+  .card__cookies {
     width: 95%;
   }
-  .card__cookies article .opciones__cookies{
+  .card__cookies article .opciones__cookies {
     flex-direction: column;
     gap: 1rem;
   }
-  .card__cookies article .opciones__cookies button{
+  .card__cookies article .opciones__cookies button {
     width: 100%;
+  }
+}
+@media (max-width: 410px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media (max-width: 380px) {
+  html {
+    font-size: 13px;
   }
 }
