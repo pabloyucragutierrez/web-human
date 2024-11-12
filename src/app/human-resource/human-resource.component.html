@@ -36,7 +36,6 @@
               <span class="orange">plataforma en la nube</span>
             </div>
           </h2>
-         
         </div>
         <div class="p__adm">
           <p>
@@ -340,52 +339,63 @@
         <img src="assets/word__human.png" alt="" class="img__moderniza" />
       </article>
       <article class="form__moderniza">
-        <form action="">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
           <div class="content__form">
-            <label for=""> Nombre de contacto </label>
+            <label for="contactName">Nombre de contacto</label>
             <div class="content__icon">
               <img src="assets/nombre_img.png" alt="" />
               <input
+                id="contactName"
                 type="text"
                 class="input"
                 placeholder="Nombre y Apellido"
+                formControlName="contactName"
               />
             </div>
           </div>
+
           <div class="content__form">
-            <label for="">Nombre de la empresa</label>
+            <label for="companyName">Nombre de la empresa</label>
             <div class="content__icon">
               <img src="assets/empresa_img.png" alt="" />
-              <input type="tex" class="input" />
+              <input
+                id="companyName"
+                type="text"
+                class="input"
+                formControlName="companyName"
+              />
             </div>
           </div>
+
           <div class="content__form">
-            <label for="">Correo electrónico</label>
+            <label for="email">Correo electrónico</label>
             <div class="content__icon">
               <img src="assets/email_img.png" alt="" />
               <input
+                id="email"
                 type="email"
-                name=""
                 class="input"
                 placeholder="empresa@email.com"
-                id=""
+                formControlName="email"
               />
             </div>
           </div>
+
           <div class="content__form">
-            <label for="">Teléfono</label>
+            <label for="phone">Teléfono</label>
             <div class="content__icon">
               <span>+51 <i class="bx bx-chevron-down"></i></span>
               <input
+                id="phone"
                 type="number"
-                name=""
                 class="input num"
                 placeholder="Número de teléfono"
-                id=""
+                formControlName="phone"
               />
             </div>
           </div>
-          <button class="btn_all">Enviar</button>
+
+          <button type="submit" class="btn_all">Enviar</button>
         </form>
       </article>
     </div>
@@ -427,56 +437,105 @@
     <button class="close__software" (click)="closeModal()">
       <i class="bx bx-x"></i>
     </button>
-    <form action="">
+    <form [formGroup]="contactFormDataForm" (ngSubmit)="submitForm()">
       <div class="content__form">
-        <label for=""> Nombre de contacto </label>
+        <label for="contactName">Nombre de contacto</label>
         <div class="content__icon">
           <img src="assets/nombre_img.png" alt="" />
-          <input type="text" class="input" placeholder="Nombre de contacto" />
+          <input
+            id="contactName"
+            type="text"
+            class="input"
+            placeholder="Nombre de contacto"
+            formControlName="contactName"
+          />
         </div>
       </div>
+
       <div class="content__form">
-        <label for=""> Cargo </label>
+        <label for="position">Cargo</label>
         <div class="content__icon">
           <img src="assets/cargo_img.png" alt="" />
-          <input type="text" class="input" />
+          <input
+            id="position"
+            type="text"
+            class="input"
+            placeholder="Cargo"
+            formControlName="position"
+          />
         </div>
       </div>
+
       <div class="content__form">
-        <label for="">Razón social</label>
+        <label for="companyName">Razón social</label>
         <div class="content__icon">
           <img src="assets/empresa_img.png" alt="" />
-          <input type="tex" class="input" />
+          <input
+            id="companyName"
+            type="text"
+            class="input"
+            placeholder="Razón social"
+            formControlName="companyName"
+          />
         </div>
       </div>
+
       <div class="content__form">
-        <label for="">Correo electrónico</label>
+        <label for="email">Correo electrónico</label>
         <div class="content__icon">
           <img src="assets/email_img.png" alt="" />
           <input
+            id="email"
             type="email"
-            name=""
             class="input"
             placeholder="empresa@email.com"
-            id=""
+            formControlName="email"
           />
         </div>
       </div>
+
       <div class="content__form">
-        <label for="">Teléfono</label>
+        <label for="phone">Teléfono</label>
         <div class="content__icon">
           <span>+51 <i class="bx bx-chevron-down"></i></span>
           <input
+            id="phone"
             type="number"
-            name=""
             class="input num"
             placeholder="Número de teléfono"
-            id=""
+            formControlName="phone"
           />
         </div>
       </div>
-      <button class="btn_all">Enviar</button>
+
+      <button class="btn_all" type="submit">Enviar</button>
     </form>
+  </article>
+</div>
+
+<div class="modal__exito" *ngIf="showSuccessModal">
+  <article>
+    <button class="close__exito" (click)="closeExito()">
+      <i class="bx bx-x"></i>
+    </button>
+    <h3>¡Tu mensaje se envió con éxito!</h3>
+    <p>
+      Nos pondremos en contacto contigo en breve para proporcionarte más
+      detalles.
+    </p>
+  </article>
+</div>
+
+<div class="modal__exito" *ngIf="showSuccessModal2">
+  <article>
+    <button class="close__exito" (click)="closeExito2()">
+      <i class="bx bx-x"></i>
+    </button>
+    <h3>¡Tu mensaje se envió con éxito!</h3>
+    <p>
+      Nos pondremos en contacto contigo en breve para proporcionarte más
+      detalles.
+    </p>
   </article>
 </div>
 <app-footer></app-footer>

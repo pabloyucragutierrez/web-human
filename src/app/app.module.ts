@@ -11,6 +11,9 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
 import { HumanResourceComponent } from './human-resource/human-resource.component';
 import { ContactanosComponent } from './contactanos/contactanos.component';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormularioComponent } from './formulario/formulario.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +25,15 @@ import { LoginComponent } from './login/login.component';
     NosotrosComponent,
     HumanResourceComponent,
     ContactanosComponent,
-    LoginComponent
+    LoginComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

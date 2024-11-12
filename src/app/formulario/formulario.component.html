@@ -1,0 +1,86 @@
+<form [formGroup]="contactForm" class="form" (ngSubmit)="onSubmitContact()">
+  <div class="content__form">
+    <label for="contactName">Nombre de contacto</label>
+    <div class="content__icon">
+      <img src="assets/nombre_img.png" alt="Nombre de contacto" />
+      <input
+        type="text"
+        class="input"
+        placeholder="Nombre de contacto"
+        formControlName="contactName"
+      />
+    </div>
+  </div>
+
+  <div class="content__form">
+    <label for="companyName">Nombre de la empresa</label>
+    <div class="content__icon">
+      <img src="assets/empresa_img.png" alt="Nombre de la empresa" />
+      <input type="text" class="input" formControlName="companyName" />
+    </div>
+  </div>
+
+  <div class="content__form">
+    <label for="companyRuc">RUC de la empresa</label>
+    <div class="content__icon">
+      <input type="text" class="input ruc" formControlName="companyRuc" />
+    </div>
+  </div>
+
+  <div class="content__form">
+    <label for="collaboratorsNum">Número de colaboradores</label>
+    <div class="content__icon">
+      <img src="assets/colaboradores_img.png" alt="Número de colaboradores" />
+      <select formControlName="collaboratorsNum" class="input">
+        <option value="<100">&lt; 100</option>
+        <option value="100-300">100 a 300</option>
+        <option value="300-500">300 a 500</option>
+        <option value="500-1000">500 a 1000</option>
+        <option value=">1000">1000 &gt;</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="content__form">
+    <label for="country">País</label>
+    <div class="content__icon">
+      <img src="assets/peru_img.png" alt="País" />
+      <select formControlName="country" class="input">
+        <option value="Perú">Perú</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="content__form">
+    <label for="email">Correo electrónico</label>
+    <div class="content__icon">
+      <img src="assets/email_img.png" alt="Correo electrónico" />
+      <input
+        type="email"
+        class="input"
+        formControlName="email"
+        placeholder="empresa@gmail.com"
+      />
+    </div>
+  </div>
+
+  <div class="content_checks">
+    <div formArrayName="services" class="content_checks">
+      <h2>¿En qué te ayudamos?</h2>
+      <div class="check" *ngFor="let service of services; let i = index">
+        <input type="checkbox" [formControlName]="i" />
+        <label>{{ service }}</label>
+      </div>
+    </div>
+  </div>
+
+  <textarea
+    class="textarea"
+    formControlName="comments"
+    placeholder="Escribe cualquier comentario o pregunta adicional"
+  ></textarea>
+
+  <button class="btn_all" type="submit" [disabled]="!contactForm.valid">
+    Enviar
+  </button>
+</form>

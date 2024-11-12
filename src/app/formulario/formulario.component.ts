@@ -1,14 +1,16 @@
+// formulario.component.ts
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-contactanos',
-  templateUrl: './contactanos.component.html',
-  styleUrl: './contactanos.component.css',
+  selector: 'app-formulario',
+  templateUrl: './formulario.component.html',
+  styleUrls: ['./formulario.component.css'],
 })
-export class ContactanosComponent {
+export class FormularioComponent {
+  @Output() formularioEnviado = new EventEmitter<boolean>(); // Emisor de eventos
   contactForm: FormGroup;
 
   services = [
@@ -22,12 +24,12 @@ export class ContactanosComponent {
     'Gestión de relaciones laborales',
     'HR Viáticos',
   ];
+
   constructor(
     private http: HttpClient,
     private router: Router,
     private fb: FormBuilder
   ) {
-    // Inicialización del formulario reactivo
     this.contactForm = this.fb.group({
       contactName: ['', Validators.required],
       companyName: ['', Validators.required],
@@ -40,7 +42,6 @@ export class ContactanosComponent {
     });
   }
 
-  // Construye un FormArray para los servicios
   buildServices(): FormArray {
     const arr = this.services.map(() => this.fb.control(false));
     return this.fb.array(arr);
@@ -49,28 +50,33 @@ export class ContactanosComponent {
   get servicesArray(): FormArray {
     return this.contactForm.get('services') as FormArray;
   }
-  // Enviar el formulario
+
   onSubmitContact() {
-    // Verifica los valores de los servicios seleccionados
-    console.log(this.contactForm.value.services); // Imprime el valor del FormArray
+    const selectedServices = this.contactForm.value.services
+      .map((checked: boolean, index: number) =>
+        checked ? this.services[index] : null
+      )
+      .filter((service: string | null) => service !== null);
+
+    const formData = {
+      ...this.contactForm.value,
+      services: selectedServices,
+    };
 
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     this.http
       .post<{ message: string }>(
         'http://localhost:3000/new-contact/submit',
-        JSON.stringify(this.contactForm.value),
+        JSON.stringify(formData),
         { headers }
       )
       .subscribe(
         (response) => {
-          alert(response.message);
-          this.router.navigate(['/thank-you']);
+          this.formularioEnviado.emit(true); // Emitimos el evento en caso de éxito
         },
         (error) => {
           console.error('Detalles del error:', error);
-          alert(
-            'Hubo un error al enviar el formulario. Intenta de nuevo más tarde.'
-          );
+          alert('Hubo un error al enviar el formulario. Intenta de nuevo más tarde.');
         }
       );
   }

@@ -1,63 +1,69 @@
-import { Component, ElementRef, ViewChild, Renderer2 } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-partners',
   templateUrl: './partners.component.html',
-  styleUrls: ['./partners.component.css']
+  styleUrls: ['./partners.component.css'],
 })
 export class PartnersComponent {
-  // @ViewChild('sliderContainer') sliderContainer!: ElementRef;
+  showSuccessModal = false;
   @ViewChild('sliderBeneficio', { static: false }) sliderBeneficio!: ElementRef;
+  contactForm: FormGroup;
 
-  
-  // private isDragging = false;
-  // private startX = 0;
-  // private scrollLeft = 0;
+  constructor(private fb: FormBuilder, private http: HttpClient) {
+    // Inicializando el formulario reactivo sin validadores
+    this.contactForm = this.fb.group({
+      contactName: [''],
+      position: [''],
+      companyName: [''],
+      companyRuc: [''],
+      country: ['Peru'],
+      city: [''],
+      email: [''],
+      phone: [''],
+      website: [''],
+      sector: [''],
+      comments: [''],
+    });
+  }
 
-  // constructor(private renderer: Renderer2) {}
+  // Método para manejar el envío del formulario
+  onSubmit() {
+    // Obtenemos los datos del formulario sin necesidad de validaciones
+    // const formData = this.contactForm.value;
+    const formData = {
+      ...this.contactForm.value,
+      companyRuc: String(this.contactForm.value.companyRuc),
+      phone: String(this.contactForm.value.phone),
+    };
+    // Realizamos la solicitud POST al backend
+    this.http
+      .post('http://localhost:3000/contact-partner/submit', formData)
+      .subscribe(
+        (response) => {
+          this.showSuccessModal = true;
+          this.contactForm.reset(); // Limpiamos el formulario
+        },
+        (error: any) => {
+          // En caso de error
+          console.error('Error al enviar el formulario:', error);
+          alert(
+            `Error: ${
+              error.error.message ||
+              'Hubo un error al enviar el formulario. Intenta más tarde.'
+            }`
+          );
+        }
+      );
+  }
 
-  
-  // onDragStart(event: MouseEvent | TouchEvent) {
-  //   this.isDragging = true;
+  closeExito() {
+    this.showSuccessModal = false;
+  }
 
-  //   const container = this.sliderContainer.nativeElement;
-    
-    
-  //   this.renderer.addClass(container, 'dragging');
-
-  //   if (event instanceof MouseEvent) {
-  //     this.startX = event.pageX - container.offsetLeft;
-  //   } else {
-  //     this.startX = event.touches[0].pageX - container.offsetLeft;
-  //   }
-
-  //   this.scrollLeft = container.scrollLeft;
-  // }
-
-  
-  // onDragging(event: MouseEvent | TouchEvent) {
-  //   if (!this.isDragging) return;
-
-  //   const container = this.sliderContainer.nativeElement;
-  //   let x;
-
-  //   if (event instanceof MouseEvent) {
-  //     x = event.pageX - container.offsetLeft;
-  //   } else {
-  //     x = event.touches[0].pageX - container.offsetLeft;
-  //   }
-
-  //   const walk = (x - this.startX) * 2; 
-  //   container.scrollLeft = this.scrollLeft - walk;
-  // }
-
-  // onDragEnd() {
-  //   this.isDragging = false;
-
-  //   const container = this.sliderContainer.nativeElement;
-  //   this.renderer.removeClass(container, 'dragging');
-  // }
- 
+  // Métodos para manejar el slider de beneficios
   leftBeneficio() {
     const containerExito = this.sliderBeneficio.nativeElement;
     containerExito.scrollLeft -= containerExito.offsetWidth;

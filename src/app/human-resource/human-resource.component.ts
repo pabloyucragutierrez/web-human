@@ -1,12 +1,75 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-human-resource',
   templateUrl: './human-resource.component.html',
   styleUrls: ['./human-resource.component.css'],
 })
-export class HumanResourceComponent {
+export class HumanResourceComponent implements OnInit {
+  showSuccessModal = false;
+  showSuccessModal2 = false;
+
+  contactForm!: FormGroup;
+  contactFormDataForm!: FormGroup;
+  constructor(private fb: FormBuilder, private http: HttpClient) {}
   isModalOpen = false;
+
+  ngOnInit(): void {
+    this.contactForm = this.fb.group({
+      contactName: [''],
+      companyName: [''],
+      email: [''],
+      phone: [''],
+    });
+
+    this.contactFormDataForm = this.fb.group({
+      contactName: [''],
+      position: [''],
+      companyName: [''],
+      email: [''],
+      phone: [''],
+    });
+  }
+
+  onSubmit(): void {
+    this.http
+      .post<{ message: string }>(
+        'http://localhost:3000/contact-form/submit',
+        this.contactForm.value
+      )
+      .subscribe({
+        next: (response) => {
+          this.showSuccessModal = true;
+        },
+        error: (error) =>
+          alert('Hubo un error al enviar el formulario. Intenta nuevamente.'),
+      });
+  }
+
+  closeExito() {
+    this.showSuccessModal = false;
+  }
+  
+  closeExito2() {
+    this.showSuccessModal2 = false;
+  }
+
+  submitForm(): void {
+    this.http
+      .post<{ message: string }>(
+        'http://localhost:3000/contact-new-form/submit',
+        this.contactFormDataForm.value
+      )
+      .subscribe({
+        next: (response) => {
+          this.showSuccessModal2 = true;
+        },
+        error: (error) =>
+          alert('Hubo un error al enviar el formulario. Intenta nuevamente.'),
+      });
+  }
 
   openModal() {
     this.isModalOpen = true;
@@ -152,7 +215,7 @@ export class HumanResourceComponent {
   ];
 
   togglePregunta(index: number): void {
-    this.preguntas[index].open = !this.preguntas[index].open; 
+    this.preguntas[index].open = !this.preguntas[index].open;
   }
 
   // Método para el contenedor de escritorio
@@ -162,7 +225,8 @@ export class HumanResourceComponent {
 
   // Método para el contenedor móvil
   toggleButtonMobile(index: number): void {
-    this.activeButtonIndexMobile = this.activeButtonIndexMobile === index ? -1 : index;
+    this.activeButtonIndexMobile =
+      this.activeButtonIndexMobile === index ? -1 : index;
   }
 
   setActiveOption(index: number): void {

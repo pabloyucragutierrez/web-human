@@ -346,125 +346,101 @@
         <img src="assets/contacto__part.png" alt="" />
       </article>
       <article class="form__psolicitar">
-        <form action="">
+        <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
           <div class="content__form">
-            <label for=""> Nombre de contacto </label>
+            <label for="contactName">Nombre de contacto</label>
             <div class="content__icon">
               <img src="assets/nombre_img.png" alt="" />
-              <input
-                type="text"
-                class="input"
-                placeholder="Nombre de contacto"
-              />
+              <input type="text" class="input" formControlName="contactName" placeholder="Nombre de contacto" id="contactName"/>
             </div>
           </div>
           <div class="content__form">
-            <label for="">Cargo</label>
+            <label for="position">Cargo</label>
             <div class="content__icon">
               <img src="assets/cargo_img.png" alt="" />
-              <input type="text" class="input" />
+              <input type="text" class="input" formControlName="position" id="position"/>
             </div>
           </div>
           <div class="content__form">
-            <label for="">Razón social</label>
+            <label for="companyName">Razón social</label>
             <div class="content__icon">
               <img src="assets/empresa_img.png" alt="" />
-              <input type="tex" class="input" />
+              <input type="text" class="input" formControlName="companyName" id="companyName"/>
             </div>
           </div>
           <div class="content__form">
-            <label for="">RUC de la empresa</label>
+            <label for="companyRuc">RUC de la empresa</label>
             <div class="content__icon">
-              <input type="number" class="input ruc" />
+              <input type="number" class="input ruc" formControlName="companyRuc" id="companyRuc"/>
             </div>
           </div>
           <div class="content__form__half">
-            <label for="">País</label>
+            <label for="country">País</label>
             <div class="content__icon">
               <img src="assets/peru_img.png" alt="" />
-              <select name="" id="" class="input">
-                <option value="">Perú</option>
+              <select class="input" formControlName="country" id="country">
+                <option value="Peru">Perú</option>
               </select>
             </div>
           </div>
           <div class="content__form__half">
-            <label for="">Ciudad</label>
+            <label for="city">Ciudad</label>
             <div class="content__icon">
               <img src="assets/location_img.png" alt="" />
-              <select name="" id="" class="input">
+              <select class="input" formControlName="city" id="city">
                 <option value="Lima">Lima</option>
                 <option value="Arequipa">Arequipa</option>
-                <option value="Trujillo">Trujillo</option>
-                <option value="Cusco">Cusco</option>
-                <option value="Piura">Piura</option>
-                <option value="Chiclayo">Chiclayo</option>
-                <option value="Iquitos">Iquitos</option>
-                <option value="Puno">Puno</option>
-                <option value="Huancayo">Huancayo</option>
-                <option value="Tacna">Tacna</option>
-                <option value="Ayacucho">Ayacucho</option>
-                <option value="Callao">Callao</option>
-                <option value="Juliaca">Juliaca</option>
-                <option value="Chimbote">Chimbote</option>
-                <option value="Cajamarca">Cajamarca</option>
-                <option value="Sullana">Sullana</option>
-                <option value="Nazca">Nazca</option>
-                <option value="Ica">Ica</option>
               </select>
             </div>
           </div>
           <div class="content__form__half">
-            <label for="">Correo electrónico</label>
+            <label for="email">Correo electrónico</label>
             <div class="content__icon">
               <img src="assets/email_img.png" alt="" />
-              <input
-                type="email"
-                name=""
-                class="input"
-                placeholder="empresa@email.com"
-                id=""
-              />
+              <input type="email" class="input" formControlName="email" placeholder="empresa@email.com" id="email"/>
             </div>
           </div>
           <div class="content__form__half">
-            <label for="">Teléfono</label>
+            <label for="phone">Teléfono</label>
             <div class="content__icon">
               <span>+51 <i class="bx bx-chevron-down"></i></span>
-              <input
-                type="number"
-                name=""
-                class="input num"
-                placeholder="Número de teléfono"
-                id=""
-              />
+              <input type="number" class="input num" formControlName="phone" placeholder="Número de teléfono" id="phone"/>
             </div>
           </div>
-
+      
           <div class="content__form">
-            <label for="">Sitio web de la empresa</label>
+            <label for="website">Sitio web de la empresa</label>
             <div class="content__icon">
-              <span>https:://</span>
-              <input type="email" class="input web" />
+              <span>https://</span>
+              <input type="text" class="input web" formControlName="website" id="website"/>
             </div>
           </div>
           <div class="content__form">
-            <label for="">Sector de la empresa</label>
+            <label for="sector">Sector de la empresa</label>
             <div class="content__icon">
               <img src="assets/sector_img.png" alt="" />
-              <input type="text" class="input" />
+              <input type="text" class="input" formControlName="sector" id="sector"/>
             </div>
           </div>
-          <textarea
-            class="textarea"
-            name=""
-            id=""
-            placeholder="Escribe cualquier comentario o pregunta adicional"
-          ></textarea>
-          <button class="btn_all">Enviar</button>
+          <textarea class="textarea" formControlName="comments" placeholder="Escribe cualquier comentario o pregunta adicional"></textarea>
+          <button class="btn_all" type="submit">Enviar</button>
         </form>
       </article>
     </div>
   </section>
+</div>
+
+<div class="modal__exito" *ngIf="showSuccessModal">
+  <article>
+    <button class="close__exito" (click)="closeExito()">
+      <i class="bx bx-x"></i>
+    </button>
+    <h3>¡Tu mensaje se envió con éxito!</h3>
+    <p>
+      Nos pondremos en contacto contigo en breve para proporcionarte más
+      detalles.
+    </p>
+  </article>
 </div>
 
 <app-footer></app-footer>

@@ -1,0 +1,103 @@
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.form label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.form .content__form {
+  width: 31%;
+  margin-bottom: 1rem;
+}
+
+.form .content__form .content__icon {
+  width: 100%;
+  height: 2.5rem;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.form .content__form .content__icon .input::placeholder {
+  color: rgba(128, 128, 128, 0.774);
+}
+
+.form .content__form .content__icon .input.ruc {
+  padding: 0rem 1rem 0rem 1rem;
+}
+
+.form .content__form .content__icon .input {
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding: 0rem 1rem 0rem 2.4rem;
+  outline: none;
+}
+
+.form .content__form .content__icon img {
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+}
+
+.form .content_checks {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.form .content_checks h2 {
+  width: 100%;
+  margin-bottom: .5rem;
+}
+
+.form .content_checks .check label {
+  font-weight: normal;
+  color: #333333;
+}
+.form .content_checks .check {
+  display: flex;
+  width: 50%;
+  align-items: baseline;
+  gap: 0.5rem;
+  /* margin-bottom: 0.5rem; */
+}
+
+.form textarea {
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  resize: none;
+  height:10rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.form .btn_all {
+  padding: 0.7rem 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .form .content__form {
+    width: 100%;
+  }
+  .form .content_checks .check {
+    width: 100%;
+  }
+}
