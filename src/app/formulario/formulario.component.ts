@@ -1,4 +1,3 @@
-// formulario.component.ts
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -10,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./formulario.component.css'],
 })
 export class FormularioComponent {
-  @Output() formularioEnviado = new EventEmitter<boolean>(); // Emisor de eventos
+  @Output() formularioEnviado = new EventEmitter<boolean>(); 
   contactForm: FormGroup;
 
   services = [
@@ -72,7 +71,7 @@ export class FormularioComponent {
       )
       .subscribe(
         (response) => {
-          this.formularioEnviado.emit(true); // Emitimos el evento en caso de éxito
+          this.formularioEnviado.emit(true); 
         },
         (error) => {
           console.error('Detalles del error:', error);

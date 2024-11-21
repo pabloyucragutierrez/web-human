@@ -818,6 +818,11 @@
   right: -1rem;
 }
 @media (max-width: 768px) {
+  /* modal de exito */
+  .modal__exito article{
+    width: 90%;
+  }
+
   /* banner */
   .contenedor__banner .content_banner {
     margin: 0;

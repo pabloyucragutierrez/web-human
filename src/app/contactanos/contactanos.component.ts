@@ -27,7 +27,6 @@ export class ContactanosComponent {
     private router: Router,
     private fb: FormBuilder
   ) {
-    // Inicialización del formulario reactivo
     this.contactForm = this.fb.group({
       contactName: ['', Validators.required],
       companyName: ['', Validators.required],
@@ -40,7 +39,6 @@ export class ContactanosComponent {
     });
   }
 
-  // Construye un FormArray para los servicios
   buildServices(): FormArray {
     const arr = this.services.map(() => this.fb.control(false));
     return this.fb.array(arr);
@@ -49,11 +47,8 @@ export class ContactanosComponent {
   get servicesArray(): FormArray {
     return this.contactForm.get('services') as FormArray;
   }
-  // Enviar el formulario
   onSubmitContact() {
-    // Verifica los valores de los servicios seleccionados
-    console.log(this.contactForm.value.services); // Imprime el valor del FormArray
-
+    console.log(this.contactForm.value.services); 
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     this.http
       .post<{ message: string }>(

@@ -79,9 +79,8 @@ export class HumanResourceComponent implements OnInit {
     this.isModalOpen = false;
   }
 
-  activeButtonIndexDesktop: number = 0; // Para el contenedor de escritorio
-  activeButtonIndexMobile: number = -1; // Para el contenedor móvil, inicia sin ningún botón activo
-
+  activeButtonIndexDesktop: number = 0; 
+  activeButtonIndexMobile: number = -1; 
   activeOptionIndex: number = 0;
 
   articles = [
@@ -218,12 +217,10 @@ export class HumanResourceComponent implements OnInit {
     this.preguntas[index].open = !this.preguntas[index].open;
   }
 
-  // Método para el contenedor de escritorio
   setActiveButtonDesktop(index: number): void {
     this.activeButtonIndexDesktop = index;
   }
 
-  // Método para el contenedor móvil
   toggleButtonMobile(index: number): void {
     this.activeButtonIndexMobile =
       this.activeButtonIndexMobile === index ? -1 : index;

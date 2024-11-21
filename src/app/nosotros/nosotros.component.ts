@@ -67,6 +67,12 @@ export class NosotrosComponent {
     this.isModalOpen = false;
   }
 
+
+  exitSubscriber = false;
+  closeModalSubs() {
+    this.exitSubscriber = false;
+  }
+
   onSubmit() {
     if (this.emailForm.valid) {
       const email = this.emailForm.value.email;
@@ -77,6 +83,7 @@ export class NosotrosComponent {
           (response: any) => {
             this.responseMessage = response.message || 'Suscripción exitosa';
             this.emailForm.reset();
+            this.exitSubscriber = true;
           },
           (error) => {
             this.responseMessage =

@@ -151,14 +151,13 @@
             <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
               <div class="content__icon">
                 <img src="assets/email_img.png" alt="" />
-
-                <input
-                  type="email"
+                <textarea
                   formControlName="email"
                   class="input"
                   placeholder="Correo electrónico corporativo"
                   required
-                />
+                >
+                </textarea>
 
                 <button type="submit" class="btn__sub">Regístrate</button>
 
@@ -216,6 +215,18 @@
       <i class="bx bx-x"></i>
     </button>
     <h3>¡Tu mensaje se envió con éxito!</h3>
+    <p>
+      Nos pondremos en contacto contigo en breve para proporcionarte más
+      detalles.
+    </p>
+  </article>
+</div>
+<div class="modal__exito" *ngIf="exitSubscriber">
+  <article>
+    <button class="close__exito" (click)="closeModalSubs()">
+      <i class="bx bx-x"></i>
+    </button>
+    <h3>¡Tu suscripción se ha enviado con éxito!</h3>
     <p>
       Nos pondremos en contacto contigo en breve para proporcionarte más
       detalles.

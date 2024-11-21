@@ -236,7 +236,7 @@
 
 .section__subs .contenedor__subs article .form__text .content__icon {
   width: 100%;
-  height: 2.8rem;
+  height: 3.3rem;
   position: relative;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
@@ -567,6 +567,10 @@
 }
 
 @media (max-width: 768px) {
+  /* modal de exito */
+  .modal__exito article{
+    width: 90%;
+  }
   /* banner */
   .contenedor__banner .content_banner {
     margin: 0;
@@ -651,7 +655,7 @@
     display: none !important;
   }
   .section__subs .contenedor__subs article .form__text .content__icon {
-    height: 4rem;
+    height: 4.1rem;
   }
   .section__subs .contenedor__subs article .form__text .content__icon .input {
     width: 60%;
