@@ -7,6 +7,7 @@ import {
   FormArray,
   FormBuilder,
 } from '@angular/forms';
+import * as emailjs from '@emailjs/browser'; // Asegúrate de usar este paquete
 
 @Component({
   selector: 'app-nosotros',
@@ -67,34 +68,48 @@ export class NosotrosComponent {
     this.isModalOpen = false;
   }
 
-
   exitSubscriber = false;
   closeModalSubs() {
     this.exitSubscriber = false;
   }
 
+  // Public Key de EmailJS
+  emailjsUserId = 'YgXO620_EAIQ1Kxmt'; // Usa tu Public Key aquí
+
   onSubmit() {
     if (this.emailForm.valid) {
       const email = this.emailForm.value.email;
-
-      this.http
-        .post('http://localhost:3000/subscribers/subscribe', { email })
-        .subscribe(
-          (response: any) => {
-            this.responseMessage = response.message || 'Suscripción exitosa';
+  
+      emailjs
+        .send(
+          'service_kke9j8f', // Service ID
+          'template_lbj6ays', // Template ID
+          {
+            email: email, // Solo pasa el campo email
+            formType: 'Nuevo correo de suscripción', // Indica el tipo de formulario
+          },
+          this.emailjsUserId // Public Key
+        )
+        .then(
+          (response) => {
+            console.log('Correo enviado con éxito:', response);
+            this.responseMessage = '¡Te has suscrito exitosamente!';
             this.emailForm.reset();
             this.exitSubscriber = true;
           },
           (error) => {
+            console.error('Error al enviar el correo:', error);
             this.responseMessage =
               'Hubo un error al intentar suscribirse. Intenta de nuevo más tarde.';
-            console.log('Error');
           }
         );
     } else {
       this.responseMessage = 'Por favor, ingresa un correo electrónico válido.';
     }
   }
+  
+  
+  
 
   buildServices(): FormArray {
     const arr = this.services.map(() => this.fb.control(false));

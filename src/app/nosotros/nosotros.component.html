@@ -156,11 +156,10 @@
                   class="input"
                   placeholder="Correo electrónico corporativo"
                   required
-                >
-                </textarea>
-
+                ></textarea>
+            
                 <button type="submit" class="btn__sub">Regístrate</button>
-
+            
                 <!-- Mostrar mensaje de error si el campo no es válido -->
                 <div
                   *ngIf="
@@ -171,13 +170,14 @@
                 >
                   Por favor, ingresa un correo electrónico válido.
                 </div>
-
+            
                 <!-- Mostrar el mensaje de respuesta -->
                 <div *ngIf="responseMessage" class="response-message">
                   {{ responseMessage }}
                 </div>
               </div>
             </form>
+            
           </div>
         </article>
       </div>

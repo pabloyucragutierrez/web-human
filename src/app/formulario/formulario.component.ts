@@ -1,7 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import * as emailjs from '@emailjs/browser'; // Paquete correcto para EmailJS
 
 @Component({
   selector: 'app-formulario',
@@ -9,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./formulario.component.css'],
 })
 export class FormularioComponent {
-  @Output() formularioEnviado = new EventEmitter<boolean>(); 
+  @Output() formularioEnviado = new EventEmitter<boolean>(); // Evento para notificar al componente principal
   contactForm: FormGroup;
 
   services = [
@@ -24,11 +23,10 @@ export class FormularioComponent {
     'HR Viáticos',
   ];
 
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-    private fb: FormBuilder
-  ) {
+  // Public Key de EmailJS
+  emailjsUserId = 'YgXO620_EAIQ1Kxmt'; // Asegúrate de usar tu Public Key
+
+  constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
       contactName: ['', Validators.required],
       companyName: ['', Validators.required],
@@ -58,24 +56,42 @@ export class FormularioComponent {
       .filter((service: string | null) => service !== null);
 
     const formData = {
-      ...this.contactForm.value,
-      services: selectedServices,
+      contactName: this.contactForm.value.contactName,
+      companyName: this.contactForm.value.companyName, // Asegúrate de enviar correctamente el nombre de la empresa
+      companyRuc: this.contactForm.value.companyRuc,
+      collaboratorsNum: this.contactForm.value.collaboratorsNum,
+      country: this.contactForm.value.country,
+      email: this.contactForm.value.email,
+      services: selectedServices.join(', '), // Convertimos el array de servicios a string
+      comments: this.contactForm.value.comments,
     };
 
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    this.http
-      .post<{ message: string }>(
-        'http://localhost:3000/new-contact/submit',
-        JSON.stringify(formData),
-        { headers }
+    // Usando EmailJS para enviar el formulario
+    emailjs
+      .send(
+        'service_xd8taeq', // Reemplaza con tu Service ID
+        'template_ye4lyz6', // Reemplaza con tu Template ID
+        {
+          from_name: formData.contactName,
+          company_name: formData.companyName, // Asegurando que se envíe el nombre de la empresa
+          company_ruc: formData.companyRuc,
+          collaborators_num: formData.collaboratorsNum,
+          country: formData.country,
+          email: formData.email,
+          services: formData.services,
+          comments: formData.comments,
+        },
+        this.emailjsUserId // Public Key
       )
-      .subscribe(
+      .then(
         (response) => {
-          this.formularioEnviado.emit(true); 
+          console.log('Formulario enviado con éxito:', response);
+          this.formularioEnviado.emit(true); // Emitimos el evento de éxito
+          this.contactForm.reset(); // Limpiamos el formulario
         },
         (error) => {
-          console.error('Detalles del error:', error);
-          alert('Hubo un error al enviar el formulario. Intenta de nuevo más tarde.');
+          console.error('Error al enviar el formulario:', error);
+          alert('Hubo un error al enviar el formulario. Intenta de nuevo.');
         }
       );
   }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as emailjs from '@emailjs/browser'; // Usando el paquete correcto
 
 @Component({
   selector: 'app-human-resource',
@@ -15,6 +16,8 @@ export class HumanResourceComponent implements OnInit {
   contactFormDataForm!: FormGroup;
   constructor(private fb: FormBuilder, private http: HttpClient) {}
   isModalOpen = false;
+  responseMessage: string = '';
+  emailjsUserId: string = 'YgXO620_EAIQ1Kxmt'; // Reemplaza con tu Public Key
 
   ngOnInit(): void {
     this.contactForm = this.fb.group({
@@ -34,41 +37,79 @@ export class HumanResourceComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.http
-      .post<{ message: string }>(
-        'http://localhost:3000/contact-form/submit',
-        this.contactForm.value
-      )
-      .subscribe({
-        next: (response) => {
-          this.showSuccessModal = true;
-        },
-        error: (error) =>
-          alert('Hubo un error al enviar el formulario. Intenta nuevamente.'),
-      });
+    if (this.contactForm.valid) {
+      // Obtenemos todos los valores del formulario
+      const formData = {
+        contactName: this.contactForm.value.contactName, // Nombre de contacto
+        companyName: this.contactForm.value.companyName, // Nombre de la empresa
+        email: this.contactForm.value.email, // Correo electrónico
+        phone: this.contactForm.value.phone, // Teléfono
+        formType: 'Nuevo formulario de Human Resource', // Tipo de formulario
+      };
+
+      // Usamos EmailJS para enviar el formulario con todos los datos
+      emailjs
+        .send(
+          'service_kke9j8f', // Service ID
+          'template_lbj6ays', // Template ID
+          formData, // Pasamos todos los datos del formulario
+          this.emailjsUserId // Public Key
+        )
+        .then(
+          (response) => {
+            console.log('Formulario enviado con éxito:', response);
+            this.showSuccessModal = true; // Mostrar modal de éxito
+          },
+          (error) => {
+            console.error('Error al enviar el formulario:', error);
+            alert('Hubo un error al enviar el formulario. Intenta nuevamente.');
+          }
+        );
+    } else {
+      alert('Por favor, ingresa los campos correctamente.');
+    }
   }
 
   closeExito() {
     this.showSuccessModal = false;
   }
-  
+
   closeExito2() {
     this.showSuccessModal2 = false;
   }
 
   submitForm(): void {
-    this.http
-      .post<{ message: string }>(
-        'http://localhost:3000/contact-new-form/submit',
-        this.contactFormDataForm.value
-      )
-      .subscribe({
-        next: (response) => {
-          this.showSuccessModal2 = true;
-        },
-        error: (error) =>
-          alert('Hubo un error al enviar el formulario. Intenta nuevamente.'),
-      });
+    if (this.contactFormDataForm.valid) {
+      const formData = this.contactFormDataForm.value;
+
+      // Usar EmailJS para enviar el formulario
+      emailjs
+        .send(
+          'service_kke9j8f', // Service ID
+          'template_lbj6ays', // Template ID
+          {
+            email: formData.email,
+            contactName: formData.contactName,
+            position: formData.position,
+            companyName: formData.companyName,
+            phone: formData.phone,
+            formType: 'Nuevo formulario de Human Resource', // Personaliza el tipo de formulario
+          },
+          this.emailjsUserId // Public Key
+        )
+        .then(
+          (response) => {
+            console.log('Formulario enviado con éxito:', response);
+            this.showSuccessModal2 = true;
+          },
+          (error) => {
+            console.error('Error al enviar el formulario:', error);
+            alert('Hubo un error al enviar el formulario. Intenta nuevamente.');
+          }
+        );
+    } else {
+      alert('Por favor, ingresa un correo electrónico válido.');
+    }
   }
 
   openModal() {
@@ -79,8 +120,8 @@ export class HumanResourceComponent implements OnInit {
     this.isModalOpen = false;
   }
 
-  activeButtonIndexDesktop: number = 0; 
-  activeButtonIndexMobile: number = -1; 
+  activeButtonIndexDesktop: number = 0;
+  activeButtonIndexMobile: number = -1;
   activeOptionIndex: number = 0;
 
   articles = [

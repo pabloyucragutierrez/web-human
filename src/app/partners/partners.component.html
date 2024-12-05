@@ -347,82 +347,178 @@
       </article>
       <article class="form__psolicitar">
         <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+          <!-- Nombre de contacto -->
           <div class="content__form">
             <label for="contactName">Nombre de contacto</label>
             <div class="content__icon">
               <img src="assets/nombre_img.png" alt="" />
-              <input type="text" class="input" formControlName="contactName" placeholder="Nombre de contacto" id="contactName"/>
+              <input
+                type="text"
+                class="input"
+                formControlName="contactName"
+                placeholder="Nombre de contacto"
+                id="contactName"
+              />
             </div>
           </div>
+
+          <!-- Cargo -->
           <div class="content__form">
             <label for="position">Cargo</label>
             <div class="content__icon">
               <img src="assets/cargo_img.png" alt="" />
-              <input type="text" class="input" formControlName="position" id="position"/>
+              <input
+                type="text"
+                class="input"
+                formControlName="position"
+                id="position"
+              />
             </div>
           </div>
+
+          <!-- Razón social -->
           <div class="content__form">
             <label for="companyName">Razón social</label>
             <div class="content__icon">
               <img src="assets/empresa_img.png" alt="" />
-              <input type="text" class="input" formControlName="companyName" id="companyName"/>
+              <input
+                type="text"
+                class="input"
+                formControlName="companyName"
+                id="companyName"
+              />
             </div>
           </div>
+
+          <!-- RUC de la empresa -->
           <div class="content__form">
             <label for="companyRuc">RUC de la empresa</label>
             <div class="content__icon">
-              <input type="number" class="input ruc" formControlName="companyRuc" id="companyRuc"/>
+              <input
+                type="number"
+                class="input ruc"
+                formControlName="companyRuc"
+                id="companyRuc"
+              />
             </div>
           </div>
+
+          <!-- País -->
           <div class="content__form__half">
             <label for="country">País</label>
             <div class="content__icon">
               <img src="assets/peru_img.png" alt="" />
               <select class="input" formControlName="country" id="country">
                 <option value="Peru">Perú</option>
+                <!-- Agrega más opciones si es necesario -->
               </select>
             </div>
           </div>
+
+          <!-- Ciudad -->
           <div class="content__form__half">
             <label for="city">Ciudad</label>
             <div class="content__icon">
               <img src="assets/location_img.png" alt="" />
               <select class="input" formControlName="city" id="city">
+                <option value="">Selecciona una ciudad</option>
                 <option value="Lima">Lima</option>
                 <option value="Arequipa">Arequipa</option>
+                <option value="Cusco">Cusco</option>
+                <option value="Trujillo">Trujillo</option>
+                <option value="Chiclayo">Chiclayo</option>
+                <option value="Iquitos">Iquitos</option>
+                <option value="Piura">Piura</option>
+                <option value="Tacna">Tacna</option>
+                <option value="Puno">Puno</option>
+                <option value="Huancayo">Huancayo</option>
+                <option value="Ica">Ica</option>
+                <option value="Ayacucho">Ayacucho</option>
+                <option value="Cajamarca">Cajamarca</option>
+                <option value="Juliaca">Juliaca</option>
+                <option value="Tarapoto">Tarapoto</option>
+                <option value="Chimbote">Chimbote</option>
+                <option value="Huaraz">Huaraz</option>
+                <option value="Moquegua">Moquegua</option>
+                <option value="Tumbes">Tumbes</option>
+                <option value="Puerto Maldonado">Puerto Maldonado</option>
+                <option value="Huánuco">Huánuco</option>
+                <option value="Pasco">Pasco</option>
+                <option value="Abancay">Abancay</option>
+                <option value="Huaral">Huaral</option>
+                <option value="Cerro de Pasco">Cerro de Pasco</option>
+                <option value="Tingo María">Tingo María</option>
+                <option value="Pucallpa">Pucallpa</option>
               </select>
             </div>
           </div>
+
+          <!-- Correo electrónico -->
           <div class="content__form__half">
             <label for="email">Correo electrónico</label>
             <div class="content__icon">
               <img src="assets/email_img.png" alt="" />
-              <input type="email" class="input" formControlName="email" placeholder="empresa@email.com" id="email"/>
+              <input
+                type="email"
+                class="input"
+                formControlName="email"
+                placeholder="empresa@email.com"
+                id="email"
+              />
             </div>
           </div>
+
+          <!-- Teléfono -->
           <div class="content__form__half">
             <label for="phone">Teléfono</label>
             <div class="content__icon">
               <span>+51 <i class="bx bx-chevron-down"></i></span>
-              <input type="number" class="input num" formControlName="phone" placeholder="Número de teléfono" id="phone"/>
+              <input
+                type="number"
+                class="input num"
+                formControlName="phone"
+                placeholder="Número de teléfono"
+                id="phone"
+              />
             </div>
           </div>
-      
+
+          <!-- Sitio web de la empresa -->
           <div class="content__form">
             <label for="website">Sitio web de la empresa</label>
             <div class="content__icon">
               <span>https://</span>
-              <input type="text" class="input web" formControlName="website" id="website"/>
+              <input
+                type="text"
+                class="input web"
+                formControlName="website"
+                id="website"
+              />
             </div>
           </div>
+
+          <!-- Sector de la empresa -->
           <div class="content__form">
             <label for="sector">Sector de la empresa</label>
             <div class="content__icon">
               <img src="assets/sector_img.png" alt="" />
-              <input type="text" class="input" formControlName="sector" id="sector"/>
+              <input
+                type="text"
+                class="input"
+                formControlName="sector"
+                id="sector"
+              />
             </div>
           </div>
-          <textarea class="textarea" formControlName="comments" placeholder="Escribe cualquier comentario o pregunta adicional"></textarea>
+
+          <!-- Comentarios -->
+          <textarea
+            class="textarea"
+            formControlName="comments"
+            placeholder="Escribe cualquier comentario o pregunta adicional"
+          ></textarea>
+
+          <!-- Botón de envío -->
           <button class="btn_all" type="submit">Enviar</button>
         </form>
       </article>
