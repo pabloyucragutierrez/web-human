@@ -107,7 +107,8 @@ main,
   top: 50%;
   transform: translate(-50%, -50%);
   width: 35rem;
-  height: 17rem;
+  /* height: 17rem; */
+  height: auto;
   padding: 2rem;
   border-radius: 20px;
   background-color: white;
@@ -250,7 +251,8 @@ main,
 @media (max-width: 768px) {
   .card__cookies {
     width: 95%;
-    height: 24rem;
+    /* height: 24rem; */
+    height: auto;
   }
   .card__cookies article .opciones__cookies {
     flex-direction: column;
