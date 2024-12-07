@@ -39,7 +39,9 @@
           <img src="assets/img_contact.png" alt="Contacto" />
         </article>
         <article class="form__contacto">
-          <app-formulario></app-formulario>
+          <app-formulario
+            (formularioEnviado)="onFormularioEnviado($event)"
+          ></app-formulario>
         </article>
       </div>
       <div class="contain_s contenedor__contacto movil__contacto">
@@ -100,5 +102,18 @@
       </div>
     </section>
   </div>
+</div>
+
+<div class="modal__exito" *ngIf="showSuccessModal">
+  <article>
+    <button class="close__exito" (click)="closeModalForm()">
+      <i class="bx bx-x"></i>
+    </button>
+    <h3>¡Tu mensaje se envió con éxito!</h3>
+    <p>
+      Nos pondremos en contacto contigo en breve para proporcionarte más
+      detalles.
+    </p>
+  </article>
 </div>
 <app-footer></app-footer>

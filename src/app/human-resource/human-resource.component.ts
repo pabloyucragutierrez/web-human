@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import * as emailjs from '@emailjs/browser'; // Usando el paquete correcto
-
+import * as emailjs from '@emailjs/browser'; 
 @Component({
   selector: 'app-human-resource',
   templateUrl: './human-resource.component.html',
@@ -17,57 +16,98 @@ export class HumanResourceComponent implements OnInit {
   constructor(private fb: FormBuilder, private http: HttpClient) {}
   isModalOpen = false;
   responseMessage: string = '';
-  emailjsUserId: string = 'YgXO620_EAIQ1Kxmt'; // Reemplaza con tu Public Key
-
+  emailjsUserId: string = 'YgXO620_EAIQ1Kxmt'; 
   ngOnInit(): void {
     this.contactForm = this.fb.group({
-      contactName: [''],
-      companyName: [''],
-      email: [''],
-      phone: [''],
+      contactName: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$'),
+          Validators.minLength(2),
+        ],
+      ],
+      companyName: ['', Validators.required],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+          ),
+        ],
+      ],
+      phone: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[0-9]{9}$'), 
+        ],
+      ],
     });
-
     this.contactFormDataForm = this.fb.group({
-      contactName: [''],
-      position: [''],
-      companyName: [''],
-      email: [''],
-      phone: [''],
+      contactName: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$'),
+          Validators.minLength(2),
+        ],
+      ],
+      position: ['', Validators.required],
+      companyName: ['', Validators.required],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+          ),
+        ],
+      ],
+      phone: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[0-9]{9}$'), 
+        ],
+      ],
     });
   }
 
   onSubmit(): void {
-    if (this.contactForm.valid) {
-      // Obtenemos todos los valores del formulario
-      const formData = {
-        contactName: this.contactForm.value.contactName, // Nombre de contacto
-        companyName: this.contactForm.value.companyName, // Nombre de la empresa
-        email: this.contactForm.value.email, // Correo electrónico
-        phone: this.contactForm.value.phone, // Teléfono
-        formType: 'Nuevo formulario de Human Resource', // Tipo de formulario
-      };
-
-      // Usamos EmailJS para enviar el formulario con todos los datos
-      emailjs
-        .send(
-          'service_kke9j8f', // Service ID
-          'template_lbj6ays', // Template ID
-          formData, // Pasamos todos los datos del formulario
-          this.emailjsUserId // Public Key
-        )
-        .then(
-          (response) => {
-            console.log('Formulario enviado con éxito:', response);
-            this.showSuccessModal = true; // Mostrar modal de éxito
-          },
-          (error) => {
-            console.error('Error al enviar el formulario:', error);
-            alert('Hubo un error al enviar el formulario. Intenta nuevamente.');
-          }
-        );
-    } else {
-      alert('Por favor, ingresa los campos correctamente.');
+    if (this.contactForm.invalid) {
+      // Si el formulario es inválido, marcamos todos los campos como tocados
+      this.contactForm.markAllAsTouched();
+      return; // No se envía el formulario si es inválido
     }
+
+    const formData = this.contactForm.value;
+
+    emailjs
+      .send(
+        'service_kke9j8f',
+        'template_lbj6ays',
+        {
+          email: formData.email,
+          contactName: formData.contactName,
+          companyName: formData.companyName,
+          phone: formData.phone,
+          formType: 'Nuevo formulario de Human Resource',
+          },
+        this.emailjsUserId 
+      )
+      .then(
+        (response) => {
+          console.log('Formulario enviado con éxito:', response);
+          this.showSuccessModal = true; 
+          this.contactForm.reset(); 
+        },
+        (error) => {
+          console.error('Error al enviar el formulario:', error);
+          alert('Hubo un error al enviar el formulario. Intenta nuevamente.');
+        }
+      );
   }
 
   closeExito() {
@@ -79,37 +119,38 @@ export class HumanResourceComponent implements OnInit {
   }
 
   submitForm(): void {
-    if (this.contactFormDataForm.valid) {
-      const formData = this.contactFormDataForm.value;
-
-      // Usar EmailJS para enviar el formulario
-      emailjs
-        .send(
-          'service_kke9j8f', // Service ID
-          'template_lbj6ays', // Template ID
-          {
-            email: formData.email,
-            contactName: formData.contactName,
-            position: formData.position,
-            companyName: formData.companyName,
-            phone: formData.phone,
-            formType: 'Nuevo formulario de Human Resource', // Personaliza el tipo de formulario
-          },
-          this.emailjsUserId // Public Key
-        )
-        .then(
-          (response) => {
-            console.log('Formulario enviado con éxito:', response);
-            this.showSuccessModal2 = true;
-          },
-          (error) => {
-            console.error('Error al enviar el formulario:', error);
-            alert('Hubo un error al enviar el formulario. Intenta nuevamente.');
-          }
-        );
-    } else {
-      alert('Por favor, ingresa un correo electrónico válido.');
+    if (this.contactFormDataForm.invalid) {
+      this.contactFormDataForm.markAllAsTouched();
+      return;
     }
+
+    const formData = this.contactFormDataForm.value;
+
+    emailjs
+      .send(
+        'service_kke9j8f',
+        'template_lbj6ays', 
+        {
+          email: formData.email,
+          contactName: formData.contactName,
+          position: formData.position,
+          companyName: formData.companyName,
+          phone: formData.phone,
+          formType: 'Nuevo formulario de Human Resource', 
+        },
+        this.emailjsUserId 
+      )
+      .then(
+        (response) => {
+          console.log('Formulario enviado con éxito:', response);
+          this.showSuccessModal2 = true;
+          this.contactFormDataForm.reset(); 
+        },
+        (error) => {
+          console.error('Error al enviar el formulario:', error);
+          alert('Hubo un error al enviar el formulario. Intenta nuevamente.');
+        }
+      );
   }
 
   openModal() {

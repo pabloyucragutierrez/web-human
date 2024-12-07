@@ -150,34 +150,37 @@
           <div class="form__text">
             <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
               <div class="content__icon">
-                <img src="assets/email_img.png" alt="" />
-                <textarea
-                  formControlName="email"
+                <img src="assets/email_img.png" alt="Correo electrónico" />
+                <input
+                  type="email"
                   class="input"
-                  placeholder="Correo electrónico corporativo"
-                  required
-                ></textarea>
-            
+                  formControlName="email"
+                  placeholder="empresa@gmail.com"
+                  maxlength="40"
+                />
                 <button type="submit" class="btn__sub">Regístrate</button>
-            
-                <!-- Mostrar mensaje de error si el campo no es válido -->
-                <div
-                  *ngIf="
-                    emailForm.get('email')?.invalid &&
-                    emailForm.get('email')?.touched
-                  "
-                  class="error-message"
-                >
-                  Por favor, ingresa un correo electrónico válido.
-                </div>
-            
-                <!-- Mostrar el mensaje de respuesta -->
-                <div *ngIf="responseMessage" class="response-message">
-                  {{ responseMessage }}
-                </div>
               </div>
+
+              <p
+                class="error-text"
+                *ngIf="
+                  emailForm.get('email')?.hasError('required') &&
+                  emailForm.get('email')?.touched
+                "
+              >
+                Este campo es obligatorio.
+              </p>
+
+              <p
+                class="error-text"
+                *ngIf="
+                  emailForm.get('email')?.hasError('pattern') &&
+                  emailForm.get('email')?.touched
+                "
+              >
+                Ingresa un correo electrónico válido.
+              </p>
             </form>
-            
           </div>
         </article>
       </div>
@@ -190,7 +193,7 @@
     <button class="close__software" (click)="closeModal()">
       <i class="bx bx-x"></i>
     </button>
-    <div class="contain_s contenedor__contacto">
+    <div class="contenedor__contacto">
       <article class="text__contacto">
         <div>
           <h2>¿Listo para dar el gran paso hacia el crecimiento?</h2>

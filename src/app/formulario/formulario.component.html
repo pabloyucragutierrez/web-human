@@ -10,21 +10,45 @@
         formControlName="contactName"
       />
     </div>
+    <p class="error-text" *ngIf="contactForm.get('contactName')?.hasError('required') && contactForm.get('contactName')?.touched">
+      Este campo es obligatorio.
+    </p>
+    <p class="error-text" *ngIf="contactForm.get('contactName')?.hasError('pattern') && contactForm.get('contactName')?.touched">
+      Solo se permiten letras y espacios.
+    </p>
   </div>
-
+  
   <div class="content__form">
     <label for="companyName">Nombre de la empresa</label>
     <div class="content__icon">
       <img src="assets/empresa_img.png" alt="Nombre de la empresa" />
-      <input type="text" class="input" formControlName="companyName" />
+      <input
+        type="text"
+        class="input"
+        formControlName="companyName"
+      />
     </div>
+    <p class="error-text" *ngIf="contactForm.get('companyName')?.invalid && contactForm.get('companyName')?.touched">
+      Este campo es obligatorio.
+    </p>
   </div>
 
   <div class="content__form">
     <label for="companyRuc">RUC de la empresa</label>
     <div class="content__icon">
-      <input type="text" class="input ruc" formControlName="companyRuc" />
+      <input
+        type="text"
+        class="input ruc"
+        formControlName="companyRuc"
+        maxlength="11"
+        />
     </div>
+    <p class="error-text" *ngIf="contactForm.get('companyRuc')?.hasError('required') && contactForm.get('companyRuc')?.touched">
+      Este campo es obligatorio.
+    </p>
+    <p class="error-text" *ngIf="contactForm.get('companyRuc')?.hasError('pattern') && contactForm.get('companyRuc')?.touched">
+      El RUC debe tener 11 dígitos numéricos.
+    </p>
   </div>
 
   <div class="content__form">
@@ -39,6 +63,9 @@
         <option value=">1000">1000 &gt;</option>
       </select>
     </div>
+    <p class="error-text" *ngIf="contactForm.get('collaboratorsNum')?.invalid && contactForm.get('collaboratorsNum')?.touched">
+      Este campo es obligatorio.
+    </p>
   </div>
 
   <div class="content__form">
@@ -60,9 +87,17 @@
         class="input"
         formControlName="email"
         placeholder="empresa@gmail.com"
+        maxlength="40"
       />
     </div>
+    <p class="error-text" *ngIf="contactForm.get('email')?.hasError('required') && contactForm.get('email')?.touched">
+      Este campo es obligatorio.
+    </p>
+    <p class="error-text" *ngIf="contactForm.get('email')?.hasError('pattern') && contactForm.get('email')?.touched">
+      Ingresa un correo electrónico válido.
+    </p>
   </div>
+  
 
   <div class="content_checks">
     <div formArrayName="services" class="content_checks">
@@ -72,6 +107,9 @@
         <label>{{ service }}</label>
       </div>
     </div>
+    <p class="error-text mt__2" *ngIf="servicesArray.hasError('minSelected') && servicesArray.touched">
+      Debes seleccionar al menos un servicio.
+    </p>
   </div>
 
   <textarea
@@ -80,7 +118,7 @@
     placeholder="Escribe cualquier comentario o pregunta adicional"
   ></textarea>
 
-  <button class="btn_all" type="submit" [disabled]="!contactForm.valid">
+  <button class="btn_all" type="submit">
     Enviar
   </button>
 </form>

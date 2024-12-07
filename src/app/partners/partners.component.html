@@ -360,6 +360,24 @@
                 id="contactName"
               />
             </div>
+            <p
+              class="error-text"
+              *ngIf="
+                contactForm.get('contactName')?.hasError('required') &&
+                contactForm.get('contactName')?.touched
+              "
+            >
+              Este campo es obligatorio.
+            </p>
+            <p
+              class="error-text"
+              *ngIf="
+                contactForm.get('contactName')?.hasError('pattern') &&
+                contactForm.get('contactName')?.touched
+              "
+            >
+              Solo se permiten letras y espacios.
+            </p>
           </div>
 
           <!-- Cargo -->
@@ -374,6 +392,15 @@
                 id="position"
               />
             </div>
+            <p
+              class="error-text"
+              *ngIf="
+                contactForm.get('position')?.hasError('required') &&
+                contactForm.get('position')?.touched
+              "
+            >
+              Este campo es obligatorio.
+            </p>
           </div>
 
           <!-- Razón social -->
@@ -388,6 +415,15 @@
                 id="companyName"
               />
             </div>
+            <p
+              class="error-text"
+              *ngIf="
+                contactForm.get('companyName')?.hasError('required') &&
+                contactForm.get('companyName')?.touched
+              "
+            >
+              Este campo es obligatorio.
+            </p>
           </div>
 
           <!-- RUC de la empresa -->
@@ -395,12 +431,31 @@
             <label for="companyRuc">RUC de la empresa</label>
             <div class="content__icon">
               <input
-                type="number"
+                type="text"
                 class="input ruc"
                 formControlName="companyRuc"
                 id="companyRuc"
+                maxlength="11"
               />
             </div>
+            <p
+              class="error-text"
+              *ngIf="
+                contactForm.get('companyRuc')?.hasError('required') &&
+                contactForm.get('companyRuc')?.touched
+              "
+            >
+              Este campo es obligatorio.
+            </p>
+            <p
+              class="error-text"
+              *ngIf="
+                contactForm.get('companyRuc')?.hasError('pattern') &&
+                contactForm.get('companyRuc')?.touched
+              "
+            >
+            El RUC debe tener 11 dígitos numéricos.
+            </p>
           </div>
 
           <!-- País -->
@@ -410,7 +465,6 @@
               <img src="assets/peru_img.png" alt="" />
               <select class="input" formControlName="country" id="country">
                 <option value="Peru">Perú</option>
-                <!-- Agrega más opciones si es necesario -->
               </select>
             </div>
           </div>
@@ -451,6 +505,15 @@
                 <option value="Pucallpa">Pucallpa</option>
               </select>
             </div>
+            <p
+              class="error-text"
+              *ngIf="
+                contactForm.get('city')?.hasError('required') &&
+                contactForm.get('city')?.touched
+              "
+            >
+              Este campo es obligatorio.
+            </p>
           </div>
 
           <!-- Correo electrónico -->
@@ -466,6 +529,24 @@
                 id="email"
               />
             </div>
+            <p
+              class="error-text"
+              *ngIf="
+                contactForm.get('email')?.hasError('required') &&
+                contactForm.get('email')?.touched
+              "
+            >
+              Este campo es obligatorio.
+            </p>
+            <p
+              class="error-text"
+              *ngIf="
+                contactForm.get('email')?.hasError('email') &&
+                contactForm.get('email')?.touched
+              "
+            >
+              Ingresa un correo electrónico válido.
+            </p>
           </div>
 
           <!-- Teléfono -->
@@ -474,13 +555,32 @@
             <div class="content__icon">
               <span>+51 <i class="bx bx-chevron-down"></i></span>
               <input
-                type="number"
+                type="text"
                 class="input num"
                 formControlName="phone"
                 placeholder="Número de teléfono"
                 id="phone"
+                maxlength="9"
               />
             </div>
+            <p
+              class="error-text"
+              *ngIf="
+                contactForm.get('phone')?.hasError('required') &&
+                contactForm.get('phone')?.touched
+              "
+            >
+              Este campo es obligatorio.
+            </p>
+            <p
+              class="error-text"
+              *ngIf="
+                contactForm.get('phone')?.hasError('pattern') &&
+                contactForm.get('phone')?.touched
+              "
+            >
+              El número de teléfono debe tener exactamente 9 dígitos.
+            </p>
           </div>
 
           <!-- Sitio web de la empresa -->
@@ -495,6 +595,15 @@
                 id="website"
               />
             </div>
+            <p
+              class="error-text"
+              *ngIf="
+                contactForm.get('website')?.hasError('required') &&
+                contactForm.get('website')?.touched
+              "
+            >
+              Este campo es obligatorio.
+            </p>
           </div>
 
           <!-- Sector de la empresa -->
@@ -509,14 +618,26 @@
                 id="sector"
               />
             </div>
+            <p
+              class="error-text"
+              *ngIf="
+                contactForm.get('sector')?.hasError('required') &&
+                contactForm.get('sector')?.touched
+              "
+            >
+              Este campo es obligatorio.
+            </p>
           </div>
 
           <!-- Comentarios -->
-          <textarea
-            class="textarea"
-            formControlName="comments"
-            placeholder="Escribe cualquier comentario o pregunta adicional"
-          ></textarea>
+          <div class="content__form">
+            <label for="comments">Comentarios</label>
+            <textarea
+              class="textarea"
+              formControlName="comments"
+              placeholder="Escribe cualquier comentario o pregunta adicional"
+            ></textarea>
+          </div>
 
           <!-- Botón de envío -->
           <button class="btn_all" type="submit">Enviar</button>

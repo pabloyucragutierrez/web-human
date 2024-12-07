@@ -7,8 +7,7 @@ import {
   FormArray,
   FormBuilder,
 } from '@angular/forms';
-import * as emailjs from '@emailjs/browser'; // Asegúrate de usar este paquete
-
+import * as emailjs from '@emailjs/browser';
 @Component({
   selector: 'app-nosotros',
   templateUrl: './nosotros.component.html',
@@ -45,8 +44,16 @@ export class NosotrosComponent {
   responseMessage: string = '';
 
   constructor(private http: HttpClient, private fb: FormBuilder) {
-    this.emailForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
+    this.emailForm = this.fb.group({
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+          ),
+        ],
+      ],
     });
 
     this.contactForm = this.fb.group({
@@ -73,42 +80,39 @@ export class NosotrosComponent {
     this.exitSubscriber = false;
   }
 
-  // Public Key de EmailJS
-  emailjsUserId = 'YgXO620_EAIQ1Kxmt'; // Usa tu Public Key aquí
-
-  onSubmit() {
+  emailjsUserId = 'YgXO620_EAIQ1Kxmt';
+  onSubmit(): void {
+    this.emailForm.markAllAsTouched();
+  
     if (this.emailForm.valid) {
       const email = this.emailForm.value.email;
   
       emailjs
         .send(
-          'service_kke9j8f', // Service ID
-          'template_lbj6ays', // Template ID
+          'service_kke9j8f', 
+          'template_lbj6ays',
           {
-            email: email, // Solo pasa el campo email
-            formType: 'Nuevo correo de suscripción', // Indica el tipo de formulario
+            email: email, 
+            formType: 'Nuevo correo de suscripción', 
           },
-          this.emailjsUserId // Public Key
+          this.emailjsUserId 
         )
         .then(
           (response) => {
             console.log('Correo enviado con éxito:', response);
             this.responseMessage = '¡Te has suscrito exitosamente!';
             this.emailForm.reset();
-            this.exitSubscriber = true;
+            this.exitSubscriber = true; 
           },
           (error) => {
             console.error('Error al enviar el correo:', error);
-            this.responseMessage =
-              'Hubo un error al intentar suscribirse. Intenta de nuevo más tarde.';
+            this.responseMessage = 'Hubo un error al intentar suscribirse. Intenta de nuevo más tarde.';
           }
         );
     } else {
       this.responseMessage = 'Por favor, ingresa un correo electrónico válido.';
     }
   }
-  
-  
   
 
   buildServices(): FormArray {

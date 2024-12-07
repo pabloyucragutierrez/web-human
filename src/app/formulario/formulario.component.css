@@ -93,6 +93,15 @@
   padding: 0.7rem 2.5rem;
 }
 
+.error-text {
+  color: red;
+  font-size: 0.875em; 
+  margin-top: 5px;
+}
+.error-text.mt__2{
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 768px) {
   .form .content__form {
     width: 100%;

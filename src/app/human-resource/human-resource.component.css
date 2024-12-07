@@ -636,7 +636,7 @@
   border-radius: 10px;
   padding: 2.5rem;
   background-color: #fff;
-  height: fit-content;
+  height: 36rem;
   z-index: 2;
   position: relative;
 }
@@ -668,11 +668,16 @@
 .modal__software .form__moderniza form .btn_all {
   width: 100%;
 }
+.modal__software .form__moderniza form::-webkit-scrollbar{
+  width: 0;
+}
 .modal__software .form__moderniza form {
   width: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  max-height: 100%;
+  overflow: auto;
 }
 .modal__software .form__moderniza form .content__form {
   width: 100%;
@@ -802,9 +807,16 @@
   top: -1rem;
   right: -1rem;
 }
+
+.error-text {
+  color: red;
+  font-size: 0.875em;
+  margin-top: 5px;
+}
+
 @media (max-width: 760px) {
   /* modal de exito */
-  .modal__exito article{
+  .modal__exito article {
     width: 90%;
   }
 

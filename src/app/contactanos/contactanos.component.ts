@@ -10,7 +10,17 @@ import { Router } from '@angular/router';
 })
 export class ContactanosComponent {
   contactForm: FormGroup;
+  showSuccessModal = false;
 
+  onFormularioEnviado(success: boolean) {
+    if (success && !this.showSuccessModal) {
+      this.showSuccessModal = true;
+    }
+  }
+
+  closeModalForm() {
+    this.showSuccessModal = false;
+  }
   services = [
     'HR Nóminas',
     'HR Gestión del tiempo',
@@ -38,6 +48,8 @@ export class ContactanosComponent {
       comments: [''],
     });
   }
+
+ 
 
   buildServices(): FormArray {
     const arr = this.services.map(() => this.fb.control(false));

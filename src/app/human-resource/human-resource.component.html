@@ -352,6 +352,16 @@
                 formControlName="contactName"
               />
             </div>
+            <!-- Mensajes de error -->
+            <p class="error-text" *ngIf="contactForm.get('contactName')?.hasError('required') && contactForm.get('contactName')?.touched">
+              Este campo es obligatorio.
+            </p>
+            <p class="error-text" *ngIf="contactForm.get('contactName')?.hasError('pattern') && contactForm.get('contactName')?.touched">
+              Solo se permiten letras y espacios.
+            </p>
+            <p class="error-text" *ngIf="contactForm.get('contactName')?.hasError('minlength') && contactForm.get('contactName')?.touched">
+              El nombre debe tener al menos 2 caracteres.
+            </p>
           </div>
         
           <div class="content__form">
@@ -365,6 +375,10 @@
                 formControlName="companyName"
               />
             </div>
+            <!-- Mensaje de error -->
+            <p class="error-text" *ngIf="contactForm.get('companyName')?.hasError('required') && contactForm.get('companyName')?.touched">
+              Este campo es obligatorio.
+            </p>
           </div>
         
           <div class="content__form">
@@ -379,6 +393,13 @@
                 formControlName="email"
               />
             </div>
+            <!-- Mensajes de error -->
+            <p class="error-text" *ngIf="contactForm.get('email')?.hasError('required') && contactForm.get('email')?.touched">
+              Este campo es obligatorio.
+            </p>
+            <p class="error-text" *ngIf="contactForm.get('email')?.hasError('pattern') && contactForm.get('email')?.touched">
+              Ingresa un correo electrónico válido.
+            </p>
           </div>
         
           <div class="content__form">
@@ -387,12 +408,20 @@
               <span>+51 <i class="bx bx-chevron-down"></i></span>
               <input
                 id="phone"
-                type="number"
+                type="text"
                 class="input num"
                 placeholder="Número de teléfono"
                 formControlName="phone"
+                maxlength="9"
               />
             </div>
+            <!-- Mensajes de error -->
+            <p class="error-text" *ngIf="contactForm.get('phone')?.hasError('required') && contactForm.get('phone')?.touched">
+              Este campo es obligatorio.
+            </p>
+            <p class="error-text" *ngIf="contactForm.get('phone')?.hasError('pattern') && contactForm.get('phone')?.touched">
+              El número de teléfono debe tener 9 dígitos.
+            </p>
           </div>
         
           <button type="submit" class="btn_all">Enviar</button>
@@ -440,7 +469,7 @@
     </button>
     <form [formGroup]="contactFormDataForm" (ngSubmit)="submitForm()">
       <div class="content__form">
-        <label for="contactName">Nombre de contacto</label>
+        <label>Nombre de contacto</label>
         <div class="content__icon">
           <img src="assets/nombre_img.png" alt="" />
           <input
@@ -451,10 +480,19 @@
             formControlName="contactName"
           />
         </div>
+        <p class="error-text" *ngIf="contactFormDataForm.get('contactName')?.hasError('required') && contactFormDataForm.get('contactName')?.touched">
+          Este campo es obligatorio.
+        </p>
+        <p class="error-text" *ngIf="contactFormDataForm.get('contactName')?.hasError('pattern') && contactFormDataForm.get('contactName')?.touched">
+          Solo se permiten letras y espacios.
+        </p>
+        <p class="error-text" *ngIf="contactFormDataForm.get('contactName')?.hasError('minlength') && contactFormDataForm.get('contactName')?.touched">
+          El nombre debe tener al menos 2 caracteres.
+        </p>
       </div>
     
       <div class="content__form">
-        <label for="position">Cargo</label>
+        <label>Cargo</label>
         <div class="content__icon">
           <img src="assets/cargo_img.png" alt="" />
           <input
@@ -465,10 +503,13 @@
             formControlName="position"
           />
         </div>
+        <p class="error-text" *ngIf="contactFormDataForm.get('position')?.hasError('required') && contactFormDataForm.get('position')?.touched">
+          Este campo es obligatorio.
+        </p>
       </div>
     
       <div class="content__form">
-        <label for="companyName">Razón social</label>
+        <label>Razón social</label>
         <div class="content__icon">
           <img src="assets/empresa_img.png" alt="" />
           <input
@@ -479,10 +520,13 @@
             formControlName="companyName"
           />
         </div>
+        <p class="error-text" *ngIf="contactFormDataForm.get('companyName')?.hasError('required') && contactFormDataForm.get('companyName')?.touched">
+          Este campo es obligatorio.
+        </p>
       </div>
     
       <div class="content__form">
-        <label for="email">Correo electrónico</label>
+        <label>Correo electrónico</label>
         <div class="content__icon">
           <img src="assets/email_img.png" alt="" />
           <input
@@ -493,24 +537,38 @@
             formControlName="email"
           />
         </div>
+        <p class="error-text" *ngIf="contactFormDataForm.get('email')?.hasError('required') && contactFormDataForm.get('email')?.touched">
+          Este campo es obligatorio.
+        </p>
+        <p class="error-text" *ngIf="contactFormDataForm.get('email')?.hasError('pattern') && contactFormDataForm.get('email')?.touched">
+          Ingresa un correo electrónico válido.
+        </p>
       </div>
     
       <div class="content__form">
-        <label for="phone">Teléfono</label>
+        <label>Teléfono</label>
         <div class="content__icon">
           <span>+51 <i class="bx bx-chevron-down"></i></span>
           <input
             id="phone"
-            type="number"
+            type="text"
             class="input num"
             placeholder="Número de teléfono"
             formControlName="phone"
+            maxlength="9"
           />
         </div>
+        <p class="error-text" *ngIf="contactFormDataForm.get('phone')?.hasError('required') && contactFormDataForm.get('phone')?.touched">
+          Este campo es obligatorio.
+        </p>
+        <p class="error-text" *ngIf="contactFormDataForm.get('phone')?.hasError('pattern') && contactFormDataForm.get('phone')?.touched">
+          El número de teléfono debe tener 9 dígitos.
+        </p>
       </div>
     
       <button class="btn_all" type="submit">Enviar</button>
     </form>
+    
     
   </article>
 </div>

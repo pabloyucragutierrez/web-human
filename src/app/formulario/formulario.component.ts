@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as emailjs from '@emailjs/browser'; // Paquete correcto para EmailJS
 
@@ -7,8 +7,8 @@ import * as emailjs from '@emailjs/browser'; // Paquete correcto para EmailJS
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css'],
 })
-export class FormularioComponent {
-  @Output() formularioEnviado = new EventEmitter<boolean>(); // Evento para notificar al componente principal
+export class FormularioComponent implements OnInit {
+  @Output() formularioEnviado = new EventEmitter<boolean>(); 
   contactForm: FormGroup;
 
   services = [
@@ -23,32 +23,73 @@ export class FormularioComponent {
     'HR Viáticos',
   ];
 
-  // Public Key de EmailJS
-  emailjsUserId = 'YgXO620_EAIQ1Kxmt'; // Asegúrate de usar tu Public Key
-
+  emailjsUserId = 'YgXO620_EAIQ1Kxmt';
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
-      contactName: ['', Validators.required],
+      contactName: [
+        '',
+        [Validators.required, Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$')],
+      ],
       companyName: ['', Validators.required],
-      companyRuc: ['', Validators.required],
+      companyRuc: [
+        '',
+        [Validators.required, Validators.pattern('^[0-9]{11}$')],
+      ],
       collaboratorsNum: ['', Validators.required],
       country: ['Perú', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      services: this.buildServices(),
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+          ),
+        ],
+      ],
+      services: this.fb.array([], Validators.required),
       comments: [''],
     });
+
+    this.setServicesControls();
   }
 
-  buildServices(): FormArray {
-    const arr = this.services.map(() => this.fb.control(false));
-    return this.fb.array(arr);
+  ngOnInit() {
+    this.servicesArray.valueChanges.subscribe(() => {
+      if (!this.atLeastOneSelected()) {
+        this.servicesArray.setErrors({ minSelected: true });
+      } else {
+        this.servicesArray.setErrors(null); 
+      }
+    });
   }
 
   get servicesArray(): FormArray {
     return this.contactForm.get('services') as FormArray;
   }
 
+  setServicesControls() {
+    this.services.forEach(() => {
+      this.servicesArray.push(this.fb.control(false));
+    });
+  }
+
+  atLeastOneSelected(): boolean {
+    return this.servicesArray.controls.some((control) => control.value);
+  }
+
   onSubmitContact() {
+    if (!this.atLeastOneSelected()) {
+      this.servicesArray.setErrors({ minSelected: true });
+    } else {
+      this.servicesArray.setErrors(null);
+    }
+
+    this.contactForm.markAllAsTouched();
+
+    if (this.contactForm.invalid) {
+      return;
+    }
+
     const selectedServices = this.contactForm.value.services
       .map((checked: boolean, index: number) =>
         checked ? this.services[index] : null
@@ -57,23 +98,22 @@ export class FormularioComponent {
 
     const formData = {
       contactName: this.contactForm.value.contactName,
-      companyName: this.contactForm.value.companyName, // Asegúrate de enviar correctamente el nombre de la empresa
+      companyName: this.contactForm.value.companyName,
       companyRuc: this.contactForm.value.companyRuc,
       collaboratorsNum: this.contactForm.value.collaboratorsNum,
       country: this.contactForm.value.country,
       email: this.contactForm.value.email,
-      services: selectedServices.join(', '), // Convertimos el array de servicios a string
+      services: selectedServices.join(', '),
       comments: this.contactForm.value.comments,
     };
 
-    // Usando EmailJS para enviar el formulario
     emailjs
       .send(
-        'service_xd8taeq', // Reemplaza con tu Service ID
-        'template_ye4lyz6', // Reemplaza con tu Template ID
+        'service_xd8taeq', 
+        'template_ye4lyz6', 
         {
           from_name: formData.contactName,
-          company_name: formData.companyName, // Asegurando que se envíe el nombre de la empresa
+          company_name: formData.companyName,
           company_ruc: formData.companyRuc,
           collaborators_num: formData.collaboratorsNum,
           country: formData.country,
@@ -81,13 +121,13 @@ export class FormularioComponent {
           services: formData.services,
           comments: formData.comments,
         },
-        this.emailjsUserId // Public Key
+        this.emailjsUserId 
       )
       .then(
         (response) => {
           console.log('Formulario enviado con éxito:', response);
-          this.formularioEnviado.emit(true); // Emitimos el evento de éxito
-          this.contactForm.reset(); // Limpiamos el formulario
+          this.formularioEnviado.emit(true);
+          this.contactForm.reset(); 
         },
         (error) => {
           console.error('Error al enviar el formulario:', error);
