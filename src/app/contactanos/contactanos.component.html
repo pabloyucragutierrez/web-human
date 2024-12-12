@@ -56,7 +56,9 @@
           </div>
         </article>
         <article class="form__contacto">
-          <app-formulario></app-formulario>
+          <app-formulario
+            (formularioEnviado)="onFormularioEnviado2($event)"
+          ></app-formulario>
           <img
             class="contact__movil__img"
             src="assets/img_contact.png"
@@ -86,8 +88,10 @@
             inmediato.
           </p>
           <nav>
-            <a href="tel:+"><i class="bx bx-phone"></i> 994 037 392</a>
-            <a href="mailto:"
+            <a href="https://wa.me/51994037392" target="_blank"
+              ><i class="bx bx-phone"></i> 994 037 392</a
+            >
+            <a href="mailto:plataforma@human.com.pe"
               ><i class="bx bx-envelope"></i> plataforma&#64;human.com.pe</a
             >
             <a href=""
@@ -105,6 +109,18 @@
 </div>
 
 <div class="modal__exito" *ngIf="showSuccessModal">
+  <article>
+    <button class="close__exito" (click)="closeModalForm()">
+      <i class="bx bx-x"></i>
+    </button>
+    <h3>¡Tu mensaje se envió con éxito!</h3>
+    <p>
+      Nos pondremos en contacto contigo en breve para proporcionarte más
+      detalles.
+    </p>
+  </article>
+</div>
+<div class="modal__exito" *ngIf="showSuccessModal2">
   <article>
     <button class="close__exito" (click)="closeModalForm()">
       <i class="bx bx-x"></i>

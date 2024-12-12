@@ -11,15 +11,22 @@ import { Router } from '@angular/router';
 export class ContactanosComponent {
   contactForm: FormGroup;
   showSuccessModal = false;
+  showSuccessModal2 = false;
 
   onFormularioEnviado(success: boolean) {
     if (success && !this.showSuccessModal) {
       this.showSuccessModal = true;
     }
   }
+  onFormularioEnviado2(success: boolean) {
+    if (success && !this.showSuccessModal2) {
+      this.showSuccessModal2 = true;
+    }
+  }
 
   closeModalForm() {
     this.showSuccessModal = false;
+    this.showSuccessModal2 = false;
   }
   services = [
     'HR Nóminas',
@@ -49,8 +56,6 @@ export class ContactanosComponent {
     });
   }
 
- 
-
   buildServices(): FormArray {
     const arr = this.services.map(() => this.fb.control(false));
     return this.fb.array(arr);
@@ -60,7 +65,7 @@ export class ContactanosComponent {
     return this.contactForm.get('services') as FormArray;
   }
   onSubmitContact() {
-    console.log(this.contactForm.value.services); 
+    console.log(this.contactForm.value.services);
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     this.http
       .post<{ message: string }>(
